@@ -28,7 +28,11 @@ yarn-error.log*
 # local env files
 .env*.local
 .env*
-/public/media/uploads/certificates
+/public/media/uploads/certificates/SoloLearn/
+/public/media/uploads/certificates/Cyber365/
+/public/media/uploads/certificates/StoneRiver/
+/public/media/uploads/certificates/Udemy/
+
 
 # vercel
 .vercel

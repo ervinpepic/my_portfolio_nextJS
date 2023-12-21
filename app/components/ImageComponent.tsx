@@ -7,8 +7,8 @@ const ImageComponent = () => {
     const { theme } = useTheme();
     let imageSrc = ''
     if (theme === 'dark')
-      imageSrc = '/media/images/profile/profilelight.webp';
-    imageSrc = '/media/images/profile/profiledark.webp'
+      imageSrc = '/media/images/profile/profiledark.webp';
+    else imageSrc = '/media/images/profile/profilelight.webp'
     
   return (
     <Image
