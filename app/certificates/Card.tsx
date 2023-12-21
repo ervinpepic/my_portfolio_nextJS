@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import { School } from "./Scool";
-import delay from "delay";
 
 // imported from School Interface ts file
 interface Props {
@@ -9,7 +8,6 @@ interface Props {
 }
 
 const Card = ({ schools }: Props) => {
-  delay(5000)
   return (
     <>
       {schools.map((school) => (

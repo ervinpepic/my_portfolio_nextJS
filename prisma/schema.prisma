@@ -23,6 +23,7 @@ model Certificate {
   subtitle       String?
   description    String?
   url            String?
-  school_id      Int
-  school         School[]
+  school_id      Int 
+  school         School @relation(fields: [school_id], references: [school_id])
+  @@index([school_id])
 }

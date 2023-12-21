@@ -2,13 +2,12 @@ import prisma from "@/prisma/client";
 import Card from "./Card";
 import CertificateHeader from "./CertificateHeader";
 import ScrollToTopButton from "./ScrollToTopButton";
-import delay from "delay";
 import { Metadata } from "next";
 
 const Certificates = async () => {
   const schools = await prisma.school.findMany({
     include: {
-      certificates: true,
+      certificates:true,
     },
   });
   return (
