@@ -1,0 +1,43 @@
+"use client";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { PiArrowUpThin } from "react-icons/pi";
+
+
+const ScrollToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    setIsVisible(scrollY > 300);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const { theme } = useTheme();
+  return (
+    <button
+      className={`${isVisible ? "block" : "hidden"}
+            w-10 h-10 fixed bottom-10 right-5 px-2 rounded-full 
+            hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
+      onClick={scrollToTop}
+    >
+      {theme === "light" ? <PiArrowUpThin className="text-slate-200 text-2xl"/> : <PiArrowUpThin className="text-slate-700 text-2xl"/>}
+    </button>
+  );
+  
+};
+
+export default ScrollToTopButton;

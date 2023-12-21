@@ -1,0 +1,34 @@
+"use client";
+import { PiSunThin } from "react-icons/pi";
+import { PiMoonThin } from "react-icons/pi";
+
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+
+const ThemeModeSwitcher = () => {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null;
+  }
+
+  return (
+    <button
+      className={`w-10 h-10 absolute right-5 top-5 px-2 rounded-full 
+        hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
+      {theme === "light" ? (
+        <PiMoonThin className="text-slate-200 text-2xl"></PiMoonThin>
+      ) : (
+        <PiSunThin className="text-slate-700 text-2xl"></PiSunThin>
+      )}
+    </button>
+  );
+};
+
+export default ThemeModeSwitcher;
