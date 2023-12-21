@@ -17,16 +17,16 @@ export const metadata: Metadata = {
     description: "Ervin Pepic Portfolio",
     type: "website",
     images:[{
-      url: '/media/images/profile/open_graph_profile_picture.png'
+      url: '/static/images/profile/open_graph_profile_picture.png'
     }]
   },
   icons: {
     apple: [
-      "/media/images/favicons/apple-touch-icon.png",
-      "media/images/favicons/safari-pinned-tab.svg",
+      "/static/images/favicons/apple-touch-icon.png",
+      "static/images/favicons/safari-pinned-tab.svg",
 
     ],
-    icon: "media/images/favicons/mstile-144x144.png",
+    icon: "static/images/favicons/mstile-144x144.png",
   },
   twitter: {
     card: "summary_large_image",
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     title: "Ervin Pepic Twitter",
     images:[
       {
-        url:"/media/images/profile/open_graph_profile_picture.png",
+        url:"/static/images/profile/open_graph_profile_picture.png",
       }]
   },
-  manifest: 'media/images/favicons/site.webmanifest'
+  manifest: '/static/images/favicons/site.webmanifest'
 };
 
 export default function RootLayout({

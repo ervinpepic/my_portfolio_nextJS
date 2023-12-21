@@ -7,12 +7,12 @@ const QualificationExperience = () => {
   const Links = [
     {
       title: "Resume",
-      href: "/media/uploads/pdf/cv.pdf",
+      href: "/static/images/pdf/cv.pdf",
       icon: <PiFilesThin className={`${IconClassNames[0]} ml-2`} />,
     },
     {
       title: "Cover Letter",
-      href: "/media/uploads/pdf/cl.pdf",
+      href: "/static/images/pdf/cl.pdf",
       icon: <PiFileTextThin className={`${IconClassNames[0]} ml-6`} />,
     },
     {
