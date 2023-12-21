@@ -47,13 +47,13 @@ const Card = ({ schools }: Props) => {
                   {certficaite.description}
                 </p>
                 <div className="p-2 m-2">
-                  <Link
+                  <a
                     className="text-slate-700 dark:text-slate-200 
                         hover:text-black hover:underline dark:hover:text-white"
                     href={certficaite.url!}
                   >
                     View Certificate
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}

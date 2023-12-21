@@ -30,10 +30,10 @@ const QualificationExperience = () => {
             dark:text-slate-200 dark:hover:scale-110 
             dark:duration-300 mx-4"
           >
-            <Link href={link.href}>
+            <a href={link.href}>
               {link.icon}
               {link.title}
-            </Link>
+            </a>
           </div>
       ))}
     </>
