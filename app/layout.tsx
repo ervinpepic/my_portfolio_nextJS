@@ -10,10 +10,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ervin Pepic | Portfolio",
   description: "Software developer portfolio",
-  metadataBase: new URL("https://ervinpepic.com"),
+  metadataBase: new URL("https://my-portfolio-next-js-pi.vercel.app/"),
   openGraph: {
     title: "Ervin Pepic Porfolio",
-    url: "https://ervinpepic.com",
+    url: "https://my-portfolio-next-js-pi.vercel.app/",
     description: "Ervin Pepic Portfolio",
     type: "website",
     images:[{
