@@ -26,7 +26,7 @@ export default function Home() {
           You may contact / reach me via:
         </h6>
       </div>
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center mt-5 mb-12">
         <ContactSection />
       </div>
     </>

@@ -7,8 +7,8 @@ const ImageComponent = () => {
     const { theme } = useTheme();
     let imageSrc = ''
     if (theme === 'dark')
-      imageSrc = '/media/images/profile/profiledark.webp';
-    else imageSrc = '/media/images/profile/profilelight.webp'
+      imageSrc = '/media/images/profile/profilelight.webp';
+    imageSrc = '/media/images/profile/profiledark.webp'
     
   return (
     <Image
@@ -17,7 +17,6 @@ const ImageComponent = () => {
     alt="Profile Photo"
     width={200}
     height={200}
-    priority={true}
   ></Image>
   )
 }
