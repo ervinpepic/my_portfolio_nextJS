@@ -1,20 +1,23 @@
 "use client";
-import { PiSunThin } from "react-icons/pi";
-import { PiMoonThin } from "react-icons/pi";
-
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 
 const ThemeModeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
+  const DynamicPiMoonThin = dynamic(() =>
+    import("react-icons/pi").then((m) => m.PiMoonThin)
+  );
+  const DynamicPiSunThin = dynamic(() =>
+    import("react-icons/pi").then((m) => m.PiSunThin)
+  );
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <button
@@ -23,12 +26,15 @@ const ThemeModeSwitcher = () => {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "light" ? (
-        <PiMoonThin className="text-slate-200 text-2xl"></PiMoonThin>
+        <span className="text-2xl text-slate-200">
+          <DynamicPiMoonThin />
+        </span>
       ) : (
-        <PiSunThin className="text-slate-700 text-2xl"></PiSunThin>
+        <span className="text-2xl text-slate-700">
+          <DynamicPiSunThin />
+        </span>
       )}
     </button>
   );
 };
-
 export default ThemeModeSwitcher;

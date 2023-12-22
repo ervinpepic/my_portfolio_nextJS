@@ -1,9 +1,7 @@
-import Link from "next/link";
-import React from "react";
-import { School } from "./Scool";
+import { School } from "../Models/School";
 
-// imported from School Interface ts file
 interface Props {
+  // imported from School Interface
   schools: School[];
 }
 

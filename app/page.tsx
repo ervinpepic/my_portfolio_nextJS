@@ -1,15 +1,15 @@
 import ContactSection from "./components/ContactSection";
-import HeadinsAndSubheadings from "./components/HeadinsAndSubheadings";
-import ImageComponent from "./components/ImageComponent";
-import QualificationDescription from "./components/QualificationDescription";
-import QualificationExperience from "./components/QualificationExperience";
+import HeadinsAndSubheadings from "./components/Headings";
+import ImageComponent from "./components/Image";
+import QualificationDescription from "./components/QualifyDescription";
+import QualificationExperience from "./components/QualifyExperience";
 
 export default function Home() {
   
   return (
     <>
       <div className="grid justify-items-center">
-        <ImageComponent/>
+        <ImageComponent />
       </div>
       <div className="grid text-center">
         <HeadinsAndSubheadings />

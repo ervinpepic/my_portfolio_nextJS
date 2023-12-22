@@ -48,12 +48,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${inter.className} bg-slate-50 dark:bg-[#2c333e] 
+        className={`${inter.className} bg-slate-50 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}
       >
-        <ThemeProviderApp attribute="class" defaultTheme="sysetm" enableSystem>
+        <ThemeProviderApp attribute="class" enableSystem={true}>
           <ThemeModeSwitcher></ThemeModeSwitcher>
           <main>{children}</main>
         </ThemeProviderApp>
