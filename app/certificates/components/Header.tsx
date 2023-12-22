@@ -12,7 +12,7 @@ const CertificateHeader = () => {
         </h1>
         <p
           className="xl:w-11/12 lg:w-11/12 w-full xl:text-start md:text-start 
-                lg:text-start text-center text-lg font-light text-gray-700 
+                lg:text-start text-center text-lg font-medium text-gray-700 
                 dark:text-slate-200 mt-5"
         >
           This page showcases my achievements in the field of programming

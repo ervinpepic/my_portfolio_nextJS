@@ -40,8 +40,8 @@ const ContactSection = () => {
         <a
           key={index}
           href={socLink.href}
-          className="text-gray-700 hover:scale-125 duration-300 
-            dark:text-slate-200 dark:hover:scale-125 dark:duration-300 m-2"
+          className="text-gray-700 hover:text-opacity-70 hover:scale-125 duration-300 
+            dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-125 dark:duration-300 m-2"
         >
           {socLink.icon}
         </a>

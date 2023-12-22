@@ -22,8 +22,8 @@ const QualificationExperience = () => {
       {Links.map((link, index) => (
         <div
           key={index}
-          className="text-gray-700 hover:scale-110 duration-300 
-            dark:text-slate-200 dark:hover:scale-110 
+          className="text-gray-700 hover:text-opacity-70 hover:scale-110 duration-300 
+            dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-110 
             dark:duration-300 mx-4"
         >
           <a href={link.href}>
@@ -33,8 +33,8 @@ const QualificationExperience = () => {
         </div>
       ))}
       <div
-        className="text-gray-700 hover:scale-110 duration-300 
-            dark:text-slate-200 dark:hover:scale-110 
+        className="text-gray-700 hover:text-opacity-80 hover:scale-110 duration-300 
+            dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-110 
             dark:duration-300 mx-4"
       >
         <Link href={"/certificates"}>

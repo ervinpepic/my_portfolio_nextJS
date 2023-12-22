@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import ThemeModeSwitcher from "./ThemeModeSwitcher";
 import styles from "./ThemeModeSwitcher.module.css";
 import ThemeProviderApp from "./ThemeProviderApp";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Raleway({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: "Ervin Pepic | Portfolio",
