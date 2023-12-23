@@ -38,14 +38,14 @@ const ScrollToTopButton = () => {
             hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
       onClick={scrollToTop}
     >
-      {theme === "light" ? (
-        <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
+      {theme === "dark" ? (
+        <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
           <div>
             <ArrowUp />
           </div>
         </IconContext.Provider>
       ) : (
-        <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
+        <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
           <div>
             <ArrowUp />
           </div>

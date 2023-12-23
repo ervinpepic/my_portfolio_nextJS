@@ -53,7 +53,7 @@ export default function RootLayout({
         className={`${inter.className} bg-slate-50 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}
       >
-        <ThemeProviderApp attribute="class" enableSystem={true}>
+        <ThemeProviderApp attribute="class" enableSystem={false} defaultTheme="dark">
           <ThemeModeSwitcher></ThemeModeSwitcher>
           <main>{children}</main>
         </ThemeProviderApp>
