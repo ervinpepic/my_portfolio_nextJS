@@ -1,7 +1,8 @@
 "use client";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import { IconContext } from "react-icons";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,19 +14,19 @@ const ScrollToTopButton = () => {
       behavior: "smooth",
     });
   };
-  
+
   const handleScroll = () => {
     const scrollY = window.scrollY;
     setIsVisible(scrollY > 300);
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   const ArrowUp = dynamic(() =>
     import("react-icons/pi").then((m) => m.PiArrowUpThin)
   );
@@ -38,13 +39,17 @@ const ScrollToTopButton = () => {
       onClick={scrollToTop}
     >
       {theme === "light" ? (
-        <span className="text-2xl text-slate-200">
-          <ArrowUp />
-        </span>
+        <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
+          <div>
+            <ArrowUp />
+          </div>
+        </IconContext.Provider>
       ) : (
-        <span className="text-2xl text-slate-700">
-          <ArrowUp />
-        </span>
+        <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
+          <div>
+            <ArrowUp />
+          </div>
+        </IconContext.Provider>
       )}
     </button>
   );

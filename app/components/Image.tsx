@@ -20,7 +20,7 @@ const ImageComponent = () => {
 
   return (
     <Image
-      className="rounded-circle xl:mt-20 lg:mt-20 md:mt-20 mt-10"
+      className="rounded-circle mt-12 md:mt-20"
       src={ImgSrc}
       alt="Profile Photo"
       width={200}

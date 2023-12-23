@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import { IconContext } from "react-icons";
 
 const ThemeModeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
@@ -26,13 +27,17 @@ const ThemeModeSwitcher = () => {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "light" ? (
-        <span className="text-2xl text-slate-200">
-          <DynamicPiMoonThin />
-        </span>
+        <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
+          <div>
+            <DynamicPiMoonThin />
+          </div>
+        </IconContext.Provider>
       ) : (
-        <span className="text-2xl text-slate-700">
-          <DynamicPiSunThin />
-        </span>
+        <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
+          <div>
+            <DynamicPiSunThin />
+          </div>
+        </IconContext.Provider>
       )}
     </button>
   );

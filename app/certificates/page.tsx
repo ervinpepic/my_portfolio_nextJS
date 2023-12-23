@@ -11,7 +11,7 @@ const Certificates = async () => {
     },
   });
   return (
-    <div className="container mx-auto xl:px-24 lg:px-6 px-4">
+    <div className="container mx-auto lg:px-24 px-4">
       {/* External component */}
       <CertificateHeader />
       {/* External component */}

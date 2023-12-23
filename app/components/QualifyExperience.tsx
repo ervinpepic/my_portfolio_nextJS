@@ -6,42 +6,42 @@ const QualificationExperience = () => {
   const IconClassNames = ["text-5xl mb-2"];
   const Links = [
     {
-      title: "Resume",
-      icon: <PiFilesThin className={`${IconClassNames[0]} ml-2`} />,
-      href: "/static/images/pdf/cv.pdf",
+      link: (
+        <a href="/static/images/pdf/cv.pdf">
+          <PiFileTextThin className={`${IconClassNames[0]} ml-2`} />
+          Resume
+        </a>
+      ),
     },
     {
-      title: "Cover Letter",
-      icon: <PiFileTextThin className={`${IconClassNames[0]} ml-6`} />,
-      href: "/static/images/pdf/cl.pdf",
+      link: (
+        <a href="/static/images/pdf/cl.pdf">
+          <PiFilesThin className={`${IconClassNames[0]} ml-6`} />
+          Cover Letter
+        </a>
+      ),
+    },
+    {
+      link: (
+        <Link href={"/certificates"}>
+          <PiCertificateThin className={`${IconClassNames[0]} ml-5`} />
+          Certificates
+        </Link>
+      ),
     },
   ];
 
   return (
     <>
-      {Links.map((link, index) => (
+      {Links.map((htmlElement, index) => (
         <div
           key={index}
-          className="text-gray-700 hover:text-opacity-70 hover:scale-110 duration-300 
-            dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-110 
-            dark:duration-300 mx-4"
+          className="text-gray-700 dark:text-slate-200 hover:text-opacity-70  dark:hover:text-opacity-70 hover:scale-110 dark:hover:scale-110 
+          duration-300 dark:duration-300 mx-4"
         >
-          <a href={link.href}>
-            {link.icon}
-            {link.title}
-          </a>
+          {htmlElement.link}
         </div>
       ))}
-      <div
-        className="text-gray-700 hover:text-opacity-80 hover:scale-110 duration-300 
-            dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-110 
-            dark:duration-300 mx-4"
-      >
-        <Link href={"/certificates"}>
-          <PiCertificateThin className={`${IconClassNames[0]} ml-5`} />
-          Certificates
-        </Link>
-      </div>
     </>
   );
 };
