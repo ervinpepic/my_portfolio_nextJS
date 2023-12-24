@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${inter.className} bg-slate-50 dark:bg-[#2c333e]
+        className={`${inter.className} bg-gray-300 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}
       >
         <ThemeProviderApp attribute="class" enableSystem={false} defaultTheme="dark">

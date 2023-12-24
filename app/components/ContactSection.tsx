@@ -4,7 +4,7 @@ import {
   PiInstagramLogoThin,
   PiLinkedinLogoThin,
   PiStackOverflowLogoThin,
-  PiTwitterLogoThin
+  PiTwitterLogoThin,
 } from "react-icons/pi";
 
 const ContactSection = () => {
@@ -36,16 +36,24 @@ const ContactSection = () => {
   ];
   return (
     <>
-      {SocialLinks.map((socLink, index) => (
-        <a
-          key={index}
-          href={socLink.href}
-          className="text-gray-700 hover:text-opacity-70 hover:scale-125 duration-300 
+      <div className="flex flex-col text-center">
+        <h6 className="font-medium text-xl text-gray-700 
+          dark:text-slate-200 mt-4 tracking-wide">
+          You may contact / reach me via:
+        </h6>
+      </div>
+      <div className="flex justify-center mt-5 mb-12">
+        {SocialLinks.map((socLink, index) => (
+          <a
+            key={index}
+            href={socLink.href}
+            className="text-gray-700 hover:text-opacity-70 hover:scale-125 duration-300 
             dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-125 dark:duration-300 m-2"
-        >
-          {socLink.icon}
-        </a>
-      ))}
+          >
+            {socLink.icon}
+          </a>
+        ))}
+      </div>
     </>
   );
 };

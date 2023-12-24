@@ -14,7 +14,7 @@ const descriptions = [
     framework: "Angular, React, Next.js",
   },
   {
-    language: "Clasic programming",
+    language: "System programming",
     framework: "C, C++, Java, GoLang",
   },
   {
@@ -25,17 +25,20 @@ const descriptions = [
 const QualificationDescription = () => {
   return (
     <>
-      {descriptions.map((programming, index) => (
-        <div key={index}>
-          <p className="mt-3 text-base text-gray-700 dark:text-slate-200">
-            <span className="font-semibold">{programming.language}: </span>
-            <span className="font-light">{programming.framework}</span>
-          </p>
-        </div>
-      ))}
-      <h6 className="mt-4 font-medium text-xl text-gray-700 dark:text-slate-200">
-        Explore my qualifications, skills, and experience
-      </h6>
+      <div className="flex flex-col text-center px-2">
+        {descriptions.map((programming, index) => (
+          <div key={index}>
+            <p className="mt-3 text-base text-gray-700 dark:text-slate-200">
+              <span className="font-semibold text-lg">
+                {programming.language}:{" "}
+              </span>
+              <span className="font-normal text-lg">
+                {programming.framework}
+              </span>
+            </p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

@@ -19,6 +19,7 @@ const ImageComponent = () => {
       : "/static/images/profile/profilelight.png";
 
   return (
+    <div className="flex flex-col items-center">
     <Image
       className="rounded-circle mt-12 md:mt-20"
       src={ImgSrc}
@@ -27,6 +28,7 @@ const ImageComponent = () => {
       height={200}
       priority={true}
     />
+    </div>
   );
 };
 
