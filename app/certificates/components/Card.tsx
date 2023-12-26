@@ -2,7 +2,12 @@ import prisma from "@/prisma/client";
 
 
 const Card = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  }catch(error) {
+    console.log('erorr in time set timeout =>: ', error)
+  }
   const schools = await prisma.school.findMany({
     include: {
       certificates: true,
