@@ -3,17 +3,12 @@ import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
+import { PiSunThin } from "react-icons/pi";
+import { PiMoonThin } from "react-icons/pi";
 
 const ThemeModeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-
-  const DynamicPiMoonThin = dynamic(() =>
-    import("react-icons/pi").then((m) => m.PiMoonThin)
-  );
-  const DynamicPiSunThin = dynamic(() =>
-    import("react-icons/pi").then((m) => m.PiSunThin)
-  );
 
   useEffect(() => {
     setMounted(true);
@@ -29,13 +24,13 @@ const ThemeModeSwitcher = () => {
       {theme === "light" ? (
         <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
           <div>
-            <DynamicPiMoonThin />
+            <PiMoonThin />
           </div>
         </IconContext.Provider>
       ) : (
         <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
           <div>
-            <DynamicPiSunThin />
+            <PiSunThin />
           </div>
         </IconContext.Provider>
       )}
