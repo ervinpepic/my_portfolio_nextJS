@@ -1,13 +1,17 @@
-import { School } from "../Models/School";
+import delay from "delay";
+import prisma from "@/prisma/client";
 
-interface Props {
-  // imported from School Interface
-  schools: School[];
-}
 
-const Card = ({ schools }: Props) => {
+const Card = async () => {
+  const schools = await prisma.school.findMany({
+    include: {
+      certificates: true,
+    }
+  });
+  await delay(1000)
   return (
     <>
+    
       {schools.map((school) => (
         <div key={school.school_id}>
           <h1

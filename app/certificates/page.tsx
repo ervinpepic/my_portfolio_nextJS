@@ -1,21 +1,20 @@
-import prisma from "@/prisma/client";
+import { Suspense } from "react";
 import Card from "./components/Card";
 import CertificateHeader from "./components/Header";
 import ScrollToTopButton from "./components/ScrollToTopBtn";
 import { Metadata } from "next";
+import LoadingSkeleton from "./components/LoadingSkeleton";
 
-const Certificates = async () => {
-  const schools = await prisma.school.findMany({
-    include: {
-      certificates: true,
-    },
-  });
+const Certificates = () => {
+  
   return (
     <div className="container mx-auto lg:px-24 px-4">
       {/* External component */}
       <CertificateHeader />
       {/* External component */}
-      <Card schools={schools} />
+      <Suspense fallback={<LoadingSkeleton skeletonCount={3}/>}>
+        <Card/>
+      </Suspense>
       {/* External component */}
       <ScrollToTopButton />
     </div>
