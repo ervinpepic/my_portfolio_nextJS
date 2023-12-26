@@ -1,9 +1,7 @@
-import { Suspense } from "react";
 import Card from "./components/Card";
 import CertificateHeader from "./components/Header";
 import ScrollToTopButton from "./components/ScrollToTopBtn";
 import { Metadata } from "next";
-import LoadingSkeleton from "./components/LoadingSkeleton";
 
 const Certificates = () => {
   
@@ -12,9 +10,7 @@ const Certificates = () => {
       {/* External component */}
       <CertificateHeader />
       {/* External component */}
-      <Suspense fallback={<LoadingSkeleton skeletonCount={3}/>}>
-        <Card/>
-      </Suspense>
+      <Card/>
       {/* External component */}
       <ScrollToTopButton />
     </div>
