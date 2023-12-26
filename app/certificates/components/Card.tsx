@@ -1,14 +1,13 @@
-import delay from "delay";
 import prisma from "@/prisma/client";
 
 
 const Card = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const schools = await prisma.school.findMany({
     include: {
       certificates: true,
     }
   });
-  await delay(1000)
   return (
     <>
     
