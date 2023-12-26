@@ -1,6 +1,5 @@
 "use client";
 import { useTheme } from "next-themes";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
 import { PiSunThin } from "react-icons/pi";
@@ -21,16 +20,16 @@ const ThemeModeSwitcher = () => {
         hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "light" ? (
-        <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
-          <div>
-            <PiMoonThin />
-          </div>
-        </IconContext.Provider>
-      ) : (
+      {theme === "dark" ? (
         <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
           <div>
             <PiSunThin />
+          </div>
+        </IconContext.Provider>
+      ) : (
+        <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
+          <div>
+            <PiMoonThin />
           </div>
         </IconContext.Provider>
       )}
