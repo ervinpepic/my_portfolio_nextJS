@@ -14,7 +14,7 @@ const ImageComponent = () => {
   if (!mounted) return null;
 
   const ImgSrc =
-    theme === "light"
+    theme && theme === "light"
       ? "/static/images/profile/profiledark.png"
       : "/static/images/profile/profilelight.png";
 

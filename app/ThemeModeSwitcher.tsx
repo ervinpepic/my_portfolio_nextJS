@@ -20,7 +20,7 @@ const ThemeModeSwitcher = () => {
         hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? (
+      {theme && theme === "dark" ? (
         <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
           <div>
             <PiSunThin />
