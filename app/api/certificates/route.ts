@@ -1,15 +1,38 @@
+import { School } from "@/app/certificates/Models/School";
+import { CertificateSchema } from "@/app/certificates/validators/CertSchoolSchema";
+import { firestoreDB } from "@/app/firebase/config";
 import {
   addDoc,
   collection,
   getDocs,
+  orderBy,
   query,
   updateDoc,
   where,
 } from "firebase/firestore";
-import { firestoreDB } from "@/app/firebase/config";
-import { NextRequest } from "next/server";
-import { CertificateSchema } from "@/app/certificates/validators/CertSchoolSchema";
-import { School } from "@/app/certificates/Models/School";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(request: NextRequest) {
+  try {
+    const orderedCertList = query(
+      collection(firestoreDB, 'certificates'),
+      orderBy('schoolName', 'asc')
+    )
+    const querySnapshot = await getDocs(orderedCertList);
+    const schoolsData = querySnapshot.docs.map(
+      (school) => school.data() as School
+    );
+
+    return NextResponse.json(schoolsData, { status: 200 });
+  } catch (error) {
+    console.error("Error while fetching data from Firebase: ", error);
+
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -41,22 +64,28 @@ export async function POST(request: NextRequest) {
           await addDoc(collection(firestoreDB, "certificates"), result.data);
         }
 
-        return new Response("Certificate added successfully", { status: 200 });
+        return NextResponse.json(
+          { message: "Certificate added successfully" },
+          { status: 200 }
+        );
       } catch (error) {
         console.error(error);
-        return new Response("Internal Server Error", { status: 500 });
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 }
+        );
       }
     } else {
-      return new Response(
-        "Bad request: " + JSON.stringify({ errors: result.error.errors }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+      return NextResponse.json(
+        { errors: result.error.errors },
+        { status: 400 }
       );
     }
   } catch (error) {
     console.error(error);
-    return new Response("Internal Server Error", { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { z } from "zod";
-import { School } from "../../Models/School";
-import { CertificateSchema } from "../../validators/CertSchoolSchema";
+import { School } from "../../../certificates/Models/School";
+import { CertificateSchema } from "../../../certificates/validators/CertSchoolSchema";
 
-const HandleAPIRequest = () => {
+export const useDataPosting = () => {
   const API_ENDPOINT = "/api/certificates";
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -16,10 +16,12 @@ const HandleAPIRequest = () => {
         console.log(
           `Certificate added successfully: , ${newCertificate.schoolName}`
         );
+        // You might want to perform additional actions upon success
       } else {
         console.error(
           `Error adding certificate: ${response.status} - ${response.statusText}`
         );
+        // Handle different HTTP status codes appropriately
       }
     } catch (error) {
       console.error(`Error adding certificate: ${(error as Error).message}`);
@@ -52,14 +54,13 @@ const HandleAPIRequest = () => {
             acc[path] = validationError.message;
             return acc;
           },
-          {}  
+          {}
         );
         setErrors(newErrors);
       }
       return false;
     }
   };
+
   return { addCertificate, validateForm, errors };
 };
-
-export default HandleAPIRequest;

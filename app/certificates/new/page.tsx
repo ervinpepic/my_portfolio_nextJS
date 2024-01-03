@@ -1,4 +1,4 @@
-import CreateForm from "../_components/_form/CreteForm";
+import Form from "../_components/_form/Form";
 
 const page = () => {
   return (
@@ -8,7 +8,7 @@ const page = () => {
           <h1 className="text-center text-3xl font-semibold tracking-wide text-gray-700 dark:text-slate-200">
             Create a new certificate
           </h1>
-          <CreateForm />
+          <Form />
         </div>
       </div>
     </div>
