@@ -1,22 +1,22 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import LoadingSkeleton from "./LoadingSkeleton";
-import { useDataFetching } from "@/app/api/certificates/services/DataFetchRequest";
 import { useDataDeleting } from "@/app/api/certificates/services/DataDeleteRequest";
+import { useDataFetching } from "@/app/api/certificates/services/DataFetchRequest";
+import { useEffect, useState } from "react";
 import { School } from "../Models/School";
-import ToastMessage from "./_form/ToastMessage";
+import LoadingSkeleton from "./LoadingSkeleton";
 import DeleteBtn from "./_form/DeleteBtn";
+import ToastMessage from "./_form/ToastMessage";
 
 const Card = () => {
-  const { fetchData, loading } = useDataFetching();
+  const { fetchData, fetchLoading } = useDataFetching();
   const { handleDelete, forceUpdate, showSuccessToast, deleteLoading } = useDataDeleting();
   const [schools, setSchools] = useState<School[]>([]);
+
   useEffect(() => {
     const fetchDataAndState = async () => {
       try {
-        const data = await fetchData();
-        setSchools(data);
+        const schoolsData = await fetchData();
+        setSchools(schoolsData);
       } catch (error) {
         console.error("Error during data fetch:", error);
       }
@@ -26,8 +26,10 @@ const Card = () => {
 
   return (
     <>
-    {showSuccessToast && <ToastMessage formName="delete"/>}
-      {loading && <LoadingSkeleton skeletonCount={3} />}
+      {fetchLoading && <LoadingSkeleton skeletonCount={3} />}
+
+      {showSuccessToast && <ToastMessage formName="delete" />}
+
       {schools?.map((school, schoolIndex) => (
         <div key={schoolIndex}>
           <h1
@@ -43,7 +45,12 @@ const Card = () => {
                 className="bg-slate-200 dark:bg-gray-700 rounded-md p-1 mb-4"
               >
                 <div className="flex justify-end">
-                  <DeleteBtn deleteFunction={() => handleDelete(school.schoolName, certficaite.title)} loading={deleteLoading}/>
+                  <DeleteBtn
+                    deleteFunction={() =>
+                      handleDelete(school.schoolName, certficaite.title)
+                    }
+                    loading={deleteLoading}
+                  />
                 </div>
                 <h3
                   className="text-lg font-medium text-slate-700 dark:text-slate-200 ]

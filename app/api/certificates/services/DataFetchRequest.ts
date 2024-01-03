@@ -3,7 +3,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 
 export const useDataFetching = () => {
-  const [loading, setLoading] = useState(false);
+  const [fetchLoading, setLoading] = useState(false);
   const fetchData = useCallback(async () => {
     try {
       setLoading(true)
@@ -21,5 +21,5 @@ export const useDataFetching = () => {
       setLoading(false);
     }
   }, []);
-  return { fetchData, loading }
+  return { fetchData, fetchLoading }
 };

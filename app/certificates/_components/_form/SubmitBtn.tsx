@@ -1,9 +1,3 @@
-interface ButtonSubmitProps {
-  onClick: () => void;
-  label: string;
-  loading: boolean;
-  disabled: boolean;
-}
 const classNames = {
   btnDisabled:
     "text-gray-400 bg-gray-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 cursor-not-allowed",
@@ -15,14 +9,20 @@ const SubmitBtn = ({
   onClick,
   label,
   loading,
-  disabled,
-}: ButtonSubmitProps) => {
+  errors
+}: {
+  onClick: () => void;
+  label: string;
+  loading: boolean;
+  errors: Record<string, string>;
+}) => {
+  const isDisabled = loading || Object.keys(errors).length > 0;
   return (
     <button
-      className={disabled ? classNames.btnDisabled : classNames.btnEnabled}
+      className={isDisabled ? classNames.btnDisabled : classNames.btnEnabled}
       type="submit"
       onClick={onClick}
-      disabled={disabled}
+      disabled={isDisabled}
     >
       {loading ? "Loading.." : label}
     </button>

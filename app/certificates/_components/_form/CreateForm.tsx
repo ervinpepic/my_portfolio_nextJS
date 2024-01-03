@@ -10,7 +10,7 @@ const classNames = {
   labelClass: "block mb-2 text-sm font-medium text-gray-900 dark:text-white",
 };
 
-const CreateForm = ({ value, onChange, errors }: FormInputProps) => {
+const Form = ({ value, onChange, errors }: FormInputProps) => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <div className="mt-10 grid gap-6 mb-6 md:grid-cols-2">
@@ -154,4 +154,4 @@ const CreateForm = ({ value, onChange, errors }: FormInputProps) => {
   );
 };
 
-export default CreateForm;
+export default Form;

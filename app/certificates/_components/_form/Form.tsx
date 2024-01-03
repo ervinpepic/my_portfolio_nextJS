@@ -59,8 +59,8 @@ const Form = () => {
         <SubmitBtn
           onClick={createCertificate}
           label={isLoading ? "" : "Add a certificate"}
-          disabled={Object.keys(errors).length > 0}
           loading={isLoading}
+          errors={errors}
         />
       </div>
     </>

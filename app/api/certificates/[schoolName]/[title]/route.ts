@@ -44,7 +44,6 @@ export async function DELETE(
         await deleteDoc(existingSchoolRef);
         return NextResponse.json({ message: "School and certificate deleted successfully" }, { status: 200 });
       }
-
       return NextResponse.json({ message: "Certificate deleted successfully" }, { status: 200 });
     } else {
       return NextResponse.json({ message: "School not found" }, { status: 404 });

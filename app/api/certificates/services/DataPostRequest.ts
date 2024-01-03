@@ -8,19 +8,17 @@ export const useDataPosting = () => {
   const API_ENDPOINT = "/api/certificates";
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const addCertificate = async (newCertificate: School) => {
+  const addCertificate = async (newCertificate: School): Promise<void> => {
     try {
       const response = await axios.post(API_ENDPOINT, newCertificate);
 
-      if (response.status === 200) {
-        console.log(
-          `Certificate added successfully: , ${newCertificate.schoolName}`
-        );
+      if (response.status === 200 || response.status === 201) {
+        console.log(`Certificate added successfully: ${newCertificate.schoolName}`);
         // You might want to perform additional actions upon success
+        // Reset errors state if needed
+        setErrors({});
       } else {
-        console.error(
-          `Error adding certificate: ${response.status} - ${response.statusText}`
-        );
+        console.error(`Error adding certificate: ${response.status} - ${response.statusText}`);
         // Handle different HTTP status codes appropriately
       }
     } catch (error) {
@@ -28,10 +26,7 @@ export const useDataPosting = () => {
     }
   };
 
-  const validateForm = ({
-    schoolName,
-    certificates: [{ title, subtitle, description, url }],
-  }: School): boolean => {
+  const validateForm = ({ schoolName, certificates: [{ title, subtitle, description, url }] }: School): boolean => {
     try {
       CertificateSchema.parse({
         schoolName,
