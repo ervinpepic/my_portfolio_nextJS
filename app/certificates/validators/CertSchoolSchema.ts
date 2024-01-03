@@ -10,12 +10,12 @@ export const CertificateSchema = z.object({
     z.object({
       title: z
         .string()
-        .min(1, {
-          message: "Title is required and must be more than 5 chars length.",
+        .min(3, {
+          message: "Title is required and must be more than 3 chars length.",
         }),
       subtitle: z
         .string()
-        .min(1, {
+        .min(3, {
           message: "Subtitle is required and must be more than 3 chars length.",
         }),
       description: z.string().min(10),

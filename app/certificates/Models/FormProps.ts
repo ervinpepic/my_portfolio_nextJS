@@ -4,6 +4,4 @@ export interface FormInputProps {
   };
   onChange: (fieldName: string, value: string) => void;
   errors?: {[key: string]: string};
-
 }
-

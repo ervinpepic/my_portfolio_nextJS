@@ -19,7 +19,24 @@ const Form = () => {
   });
   const handleInputChange = (fieldName: string, value: string) => {
     setFormValues((prevValues) => ({ ...prevValues, [fieldName]: value }));
+    const updatedValues = {
+      ...formValues,
+      [fieldName]: value,
+    };
+
+    validateForm({
+      schoolName: updatedValues.schoolName,
+      certificates: [
+        {
+          title: updatedValues.title,
+          subtitle: updatedValues.subtitle,
+          description: updatedValues.description,
+          url: updatedValues.url,
+        },
+      ],
+    });
   };
+
   const createCertificate = async () => {
     setIsLoading(true);
     try {
@@ -53,8 +70,12 @@ const Form = () => {
   };
   return (
     <>
-      {showSuccessToast && <ToastMessage formName="create"/>}
-      <CreateForm value={formValues} onChange={handleInputChange} errors={errors} />
+      {showSuccessToast && <ToastMessage formName="create" />}
+      <CreateForm
+        value={formValues}
+        onChange={handleInputChange}
+        errors={errors}
+      />
       <div className="md:col-span-2 mt-6">
         <SubmitBtn
           onClick={createCertificate}

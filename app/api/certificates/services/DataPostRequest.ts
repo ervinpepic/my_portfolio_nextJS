@@ -57,5 +57,5 @@ export const useDataPosting = () => {
     }
   };
 
-  return { addCertificate, validateForm, errors };
+  return { addCertificate, validateForm, errors, setErrors };
 };
