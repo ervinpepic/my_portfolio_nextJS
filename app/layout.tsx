@@ -4,8 +4,9 @@ import ThemeModeSwitcher from "./ThemeModeSwitcher";
 import styles from "./ThemeModeSwitcher.module.css";
 import ThemeProviderApp from "./ThemeProviderApp";
 import "./globals.css";
+import AuthProvider from "./auth/Provider";
 
-const inter = Raleway({subsets: ['latin']});
+const inter = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Ervin Pepic | Portfolio",
@@ -53,10 +54,16 @@ export default function RootLayout({
         className={`${inter.className} bg-gray-100 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}
       >
-        <ThemeProviderApp attribute="class" enableSystem={false} defaultTheme="dark">
-          <ThemeModeSwitcher></ThemeModeSwitcher>
-          <main>{children}</main>
-        </ThemeProviderApp>
+        <AuthProvider>
+          <ThemeProviderApp
+            attribute="class"
+            enableSystem={false}
+            defaultTheme="dark"
+          >
+            <ThemeModeSwitcher></ThemeModeSwitcher>
+            <main>{children}</main>
+          </ThemeProviderApp>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -6,11 +6,13 @@ import { School } from "../Models/School";
 import LoadingSkeleton from "./LoadingSkeleton";
 import DeleteBtn from "./_form/DeleteBtn";
 import ToastMessage from "./_form/ToastMessage";
+import { useSession } from "next-auth/react";
 
 const Card = () => {
   const { fetchData, fetchLoading } = useDataFetching();
   const { handleDelete, forceUpdate, showSuccessToast, deleteLoading } = useDataDeleting();
   const [schools, setSchools] = useState<School[]>([]);
+  const {status, data: session} = useSession();
 
   useEffect(() => {
     const getCertificates = async () => {
@@ -23,7 +25,7 @@ const Card = () => {
     };
     getCertificates();
   }, [fetchData, forceUpdate]);
-
+  
   return (
     <>
       {fetchLoading && <LoadingSkeleton skeletonCount={3} />}
@@ -45,12 +47,12 @@ const Card = () => {
                 className="bg-slate-200 dark:bg-gray-700 rounded-md p-1 mb-4"
               >
                 <div className="flex justify-end">
-                  <DeleteBtn
+                  {status === 'authenticated' && <DeleteBtn
                     deleteFunction={() =>
                       handleDelete(school.schoolName, certficaite.title)
                     }
                     loading={deleteLoading}
-                  />
+                  />}
                 </div>
                 <h3
                   className="text-lg font-medium text-slate-700 dark:text-slate-200 ]
