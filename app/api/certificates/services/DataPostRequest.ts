@@ -14,7 +14,6 @@ export const useDataPosting = () => {
 
       if (response.status === 200 || response.status === 201) {
         console.log(`Certificate added successfully: ${newCertificate.schoolName}`);
-        // You might want to perform additional actions upon success
         // Reset errors state if needed
         setErrors({});
       } else {

@@ -13,15 +13,15 @@ const Card = () => {
   const [schools, setSchools] = useState<School[]>([]);
 
   useEffect(() => {
-    const fetchDataAndState = async () => {
+    const getCertificates = async () => {
       try {
-        const schoolsData = await fetchData();
-        setSchools(schoolsData);
+        const certificateData = await fetchData();
+        setSchools(certificateData);
       } catch (error) {
         console.error("Error during data fetch:", error);
       }
     };
-    fetchDataAndState();
+    getCertificates();
   }, [fetchData, forceUpdate]);
 
   return (

@@ -14,11 +14,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    const orderedCertList = query(
+    const orderedCertificateList = query(
       collection(firestoreDB, 'certificates'),
       orderBy('schoolName', 'asc')
     )
-    const querySnapshot = await getDocs(orderedCertList);
+    const querySnapshot = await getDocs(orderedCertificateList);
     const schoolsData = querySnapshot.docs.map(
       (school) => school.data() as School
     );

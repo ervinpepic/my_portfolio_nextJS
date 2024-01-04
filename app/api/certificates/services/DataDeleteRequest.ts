@@ -7,14 +7,10 @@ export const useDataDeleting = () => {
   const [showSuccessToast, setShowSuccessToast] = useState(false);
 
   const handleDelete = async (schoolName: string, certificateTitle: string) => {
+    const API_ENDPOINT = `/api/certificates/${encodeURIComponent(schoolName)}/${encodeURIComponent(certificateTitle)}`;
     try {
       setDeleteLoading(true);
-      const response = await axios.delete(
-        `/api/certificates/${encodeURIComponent(
-          schoolName
-        )}/${encodeURIComponent(certificateTitle)}`
-      );
-
+      const response = await axios.delete(API_ENDPOINT);
       if (response.status === 200) {
         console.log("Delete successful");
         setShowSuccessToast(true);

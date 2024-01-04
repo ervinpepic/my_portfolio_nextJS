@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { ZodError, z } from "zod";
 
 export const CertificateSchema = z.object({
   schoolName: z
