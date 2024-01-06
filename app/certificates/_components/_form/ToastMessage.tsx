@@ -1,25 +1,49 @@
-import React from "react";
-
-const ToastMessage = ({ formName }: { formName: string }) => {
-  const getFormName = () => {
+const ToastMessage = ({
+  formName,
+  messageType,
+  successMessage = "Operation successful.",
+  errorMessage = "Operation failed.",
+  onClose
+}: {
+  formName: string;
+  messageType: "success" | "danger";
+  successMessage?: string;
+  errorMessage?: string;
+  onClose: () => void;
+}) => {
+  const getMessage = () => {
     switch (formName) {
       case "create":
-        return "Certificate added successfully.";
+        return messageType === "success" ? successMessage : errorMessage;
       case "delete":
-        return "Certificate deleted successfully.";
+        return messageType === "success" ? successMessage : errorMessage;
       default:
         return "";
     }
   };
+
+  const getClassName = () => {
+    switch (messageType) {
+      case "success":
+        return "bg-teal-100 border-t-4 border-teal-500 text-teal-900";
+      case "danger":
+        return "bg-red-100 border-t-4 border-red-500 text-red-900";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div
-      className="absolute right-5 top-5 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+      className={`absolute right-5 top-5 ${getClassName()} rounded-b px-4 py-3 shadow-md`}
       role="alert"
     >
       <div className="flex">
         <div className="py-1">
           <svg
-            className="fill-current h-6 w-6 text-teal-500 mr-4"
+            className={`fill-current h-6 w-6 ${
+              messageType === "success" ? "text-teal-500" : "text-red-500"
+            } mr-4`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >
@@ -28,10 +52,15 @@ const ToastMessage = ({ formName }: { formName: string }) => {
         </div>
         <div>
           <p className="font-bold">Notification Center</p>
-          <p className="text-sm">
-            {getFormName()}
-          </p>
+          <p className="text-sm">{getMessage()}</p>
         </div>
+        <button
+          type="button"
+          className="absolute top-0 right-0 mt-1 mr-2 text-xl font-semibold cursor-pointer focus:outline-none"
+          onClick={onClose}
+        >
+          &times;
+        </button>
       </div>
     </div>
   );

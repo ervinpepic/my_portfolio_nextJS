@@ -14,10 +14,12 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { schoolName: string; title: string } }
-)  {
+) {
   try {
     if (!params?.schoolName || !params?.title) {
-      return new Response("Missing 'schoolName' or 'title' parameter", { status: 400 });
+      return new Response("Missing 'schoolName' or 'title' parameter", {
+        status: 400,
+      });
     }
 
     const certificateQuery = query(
@@ -25,7 +27,7 @@ export async function DELETE(
       where("schoolName", "==", params.schoolName),
       where("title", "==", params.title)
     );
-    
+
     const certificateSnapshot = await getDocs(certificateQuery);
 
     if (certificateSnapshot.size > 0) {
@@ -34,11 +36,21 @@ export async function DELETE(
       // Delete the certificate document
       await deleteDoc(certificateRef);
 
-      return NextResponse.json({ message: "Certificate deleted successfully" }, { status: 200 });
+      return NextResponse.json(
+        { message: "Certificate deleted successfully" },
+        { status: 200 }
+      );
     } else {
-      return NextResponse.json({ message: "Certificate not found" }, { status: 404 });
+      return NextResponse.json(
+        { message: "Certificate not found" },
+        { status: 404 }
+      );
     }
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    console.error("Error during certificate deletion:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

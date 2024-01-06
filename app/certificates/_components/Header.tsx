@@ -1,6 +1,5 @@
 import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from "next-auth";
-import React from "react";
 
 const CertificateHeader = async () => {
   const session = await getServerSession(authOptions);

@@ -40,11 +40,7 @@ export const metadata: Metadata = {
   },
   manifest: "/static/images/favicons/site.webmanifest",
   appleWebApp: true,
-  keywords: [
-    "Software developer",
-    "portfolio",
-    "developer"
-  ]
+  keywords: ["Software developer", "portfolio", "developer"],
 };
 
 export default function RootLayout({
@@ -53,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} bg-gray-100 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}

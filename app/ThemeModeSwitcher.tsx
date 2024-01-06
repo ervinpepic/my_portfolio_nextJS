@@ -21,15 +21,11 @@ const ThemeModeSwitcher = () => {
     >
       {theme && theme === "dark" ? (
         <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
-          <div>
-            <PiSunThin />
-          </div>
+          <PiSunThin />
         </IconContext.Provider>
       ) : (
         <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
-          <div>
-            <PiMoonThin />
-          </div>
+          <PiMoonThin />
         </IconContext.Provider>
       )}
     </button>

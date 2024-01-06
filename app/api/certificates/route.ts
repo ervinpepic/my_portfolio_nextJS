@@ -1,17 +1,15 @@
-import {validationSchema}  from "@/app/certificates/validators/YupValidationSchema";
+import { Certificate } from "@/app/certificates/Models/Certificate";
+import { validationSchema } from "@/app/certificates/validators/YupValidationSchema";
 import { firestoreDB } from "@/app/firebase/config";
-import * as Yup from "yup";
 import {
   addDoc,
   collection,
   getDocs,
   orderBy,
-  query,
-  updateDoc,
-  where,
+  query
 } from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
-import { Certificate } from "@/app/certificates/Models/Certificate";
+import * as Yup from "yup";
 
 export async function GET(request: NextRequest) {
   try {

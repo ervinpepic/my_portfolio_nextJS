@@ -1,8 +1,13 @@
 "use client";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
-import { PiArrowUpThin } from "react-icons/pi";
+const PiArrowUpThinDynamic = dynamic(
+  () => import("react-icons/pi").then((module) => module.PiArrowUpThin),
+  { ssr: false }
+);
+
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { theme } = useTheme();
@@ -36,13 +41,13 @@ const ScrollToTopButton = () => {
       {theme === "dark" ? (
         <IconContext.Provider value={{ className: "text-slate-700 text-2xl" }}>
           <div>
-            <PiArrowUpThin />
+            <PiArrowUpThinDynamic />
           </div>
         </IconContext.Provider>
       ) : (
         <IconContext.Provider value={{ className: "text-slate-200 text-2xl" }}>
           <div>
-            <PiArrowUpThin />
+            <PiArrowUpThinDynamic />
           </div>
         </IconContext.Provider>
       )}

@@ -1,16 +1,22 @@
 "use client";
 
-import { useFormik } from "formik";
-import { formClassNames } from "./FormClasses";
-import { validationSchema } from "../../validators/YupValidationSchema";
 import { useDataPosting } from "@/app/api/certificates/services/DataPostRequest";
+import { useFormik } from "formik";
+import { validationSchema } from "../../validators/YupValidationSchema";
+import { formClassNames } from "./FormClasses";
+import { formFields } from "./FormFields";
 import SubmitBtn from "./SubmitBtn";
 import ToastMessage from "./ToastMessage";
-import { formFields } from "./FormFields";
 
 const CreateForm = () => {
-  const { addCertificate, isCreatePostloading, isCreatePostSuccess } =
-  useDataPosting();
+  const {
+    addCertificate,
+    isCreatePostloading,
+    showSuccessToast,
+    setShowSuccessToast,
+    showErrorToast,
+    setShowErrorToast
+  } = useDataPosting();
   const formik = useFormik({
     initialValues: {
       schoolName: "",
@@ -32,7 +38,22 @@ const CreateForm = () => {
   const { errors, touched, values, handleChange, handleSubmit } = formik;
   return (
     <form onSubmit={handleSubmit} method="POST">
-      {isCreatePostSuccess && <ToastMessage formName="create" />}
+      {showSuccessToast && (
+        <ToastMessage
+          formName="create"
+          messageType="success"
+          successMessage="Post created successfully."
+          onClose={() => setShowSuccessToast(false)}
+        />
+      )}
+      {showErrorToast && (
+        <ToastMessage
+          formName="create"
+          messageType="danger"
+          errorMessage="There is an error during post creation."
+          onClose={() => setShowErrorToast(false)}
+        />
+      )}
       <div className="mt-10 grid gap-6 mb-6 md:grid-cols-2">
         {formFields.map((field) => (
           <div key={field.name}>

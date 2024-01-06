@@ -11,10 +11,8 @@ export const useDataFetching = () => {
       const response = await axios.get("/api/certificates");
 
       if (response.status === 200) {
-        // Assuming response.data is an object where keys are school names
-        // and values are arrays of certificates
-        const certificatesBySchool: Record<string, Certificate[]> = response.data;
-
+        const certificatesBySchool: Record<string, Certificate[]> =
+          response.data;
         return certificatesBySchool;
       } else {
         console.error("Error while fetching data:", response.data);
