@@ -1,25 +1,32 @@
-import { School } from "@/app/certificates/Models/School";
+import { Certificate } from "@/app/certificates/Models/Certificate";
 import axios from "axios";
 import { useCallback, useState } from "react";
 
 export const useDataFetching = () => {
-  const [fetchLoading, setLoading] = useState(false);
+  const [fetchLoading, setFetchLoading] = useState(false);
+
   const fetchData = useCallback(async () => {
     try {
-      setLoading(true)
+      setFetchLoading(true);
       const response = await axios.get("/api/certificates");
+
       if (response.status === 200) {
-        return response.data as School[];
+        // Assuming response.data is an object where keys are school names
+        // and values are arrays of certificates
+        const certificatesBySchool: Record<string, Certificate[]> = response.data;
+
+        return certificatesBySchool;
       } else {
         console.error("Error while fetching data:", response.data);
-        return [];
+        return {};
       }
     } catch (error) {
       console.error("Error during data fetch:", error);
-      return [];
-    }finally {
-      setLoading(false);
+      return {};
+    } finally {
+      setFetchLoading(false);
     }
   }, []);
-  return { fetchData, fetchLoading }
+
+  return { fetchData, fetchLoading };
 };

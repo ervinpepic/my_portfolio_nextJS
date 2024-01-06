@@ -2,8 +2,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
-import { PiSunThin } from "react-icons/pi";
-import { PiMoonThin } from "react-icons/pi";
+import { PiMoonThin, PiSunThin } from "react-icons/pi";
 
 const ThemeModeSwitcher = () => {
   const [mounted, setMounted] = useState(false);

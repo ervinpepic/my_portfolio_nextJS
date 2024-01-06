@@ -1,15 +1,17 @@
-import { authOptions } from "@/app/utils/authOptions";
+import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from "next-auth";
 import React from "react";
 
 const CertificateHeader = async () => {
-const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
   return (
     <div className="flex flex-col mt-4 md:mt-10 mb-16">
       <div className="mt-16 lg:mt-20">
-        {session && <h1 className="text-center md:text-start text-3xl font-semibold tracking-wide text-gray-700 dark:text-slate-200">
-          Trenutno ulogovan {session.user?.name}
-        </h1>}
+        {session && (
+          <h1 className="text-center text-3xl font-thin tracking-wide text-gray-700 dark:text-slate-200 mb-6">
+            Logged in as {session.user?.name}
+          </h1>
+        )}
         <h1 className="text-center md:text-start text-3xl font-semibold tracking-wide text-gray-700 dark:text-slate-200">
           Certificates & Awards
         </h1>

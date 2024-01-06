@@ -1,6 +1,6 @@
-import { School } from "@/app/certificates/Models/School";
-import { CertificateSchema } from "@/app/certificates/validators/CertSchoolSchema";
+import {validationSchema}  from "@/app/certificates/validators/YupValidationSchema";
 import { firestoreDB } from "@/app/firebase/config";
+import * as Yup from "yup";
 import {
   addDoc,
   collection,
@@ -11,6 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
+import { Certificate } from "@/app/certificates/Models/Certificate";
 
 export async function GET(request: NextRequest) {
   try {
@@ -19,11 +20,19 @@ export async function GET(request: NextRequest) {
       orderBy('schoolName', 'asc')
     )
     const querySnapshot = await getDocs(orderedCertificateList);
-    const schoolsData = querySnapshot.docs.map(
-      (school) => school.data() as School
-    );
+    const certificatesBySchool: Record<string, Certificate[]> = {};
 
-    return NextResponse.json(schoolsData, { status: 200 });
+    querySnapshot.forEach((doc) => {
+      const certificate = doc.data() as Certificate;
+
+      if (certificatesBySchool[certificate.schoolName]) {
+        certificatesBySchool[certificate.schoolName].push(certificate);
+      } else {
+        certificatesBySchool[certificate.schoolName] = [certificate];
+      }
+    });
+
+    return NextResponse.json(certificatesBySchool, { status: 200 });
   } catch (error) {
     console.error("Error while fetching data from Firebase: ", error);
 
@@ -37,54 +46,49 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const result = CertificateSchema.safeParse(body as School);
 
-    if (result.success) {
-      try {
-        // Check if the school already exists
-        const schoolQuery = query(
-          collection(firestoreDB, "certificates"),
-          where("schoolName", "==", result.data.schoolName)
-        );
-        const schoolSnapshot = await getDocs(schoolQuery);
+    try {
+      await validationSchema.validate(body, { abortEarly: false });
 
-        if (schoolSnapshot.size > 0) {
-          // School already exists, get the existing school data
-          const existingSchoolRef = schoolSnapshot.docs[0].ref;
+      const { schoolName, title, subtitle, description, url } = body;
 
-          // Update the existing school with the new certificates
-          await updateDoc(existingSchoolRef, {
-            certificates: [
-              ...schoolSnapshot.docs[0].data().certificates,
-              ...result.data.certificates,
-            ],
-          });
-        } else {
-          // School doesn't exist, create a new school with the certificate
-          await addDoc(collection(firestoreDB, "certificates"), result.data);
-        }
+      // Add a new document to the "certificates" collection
+      await addDoc(collection(firestoreDB, 'certificates'), {
+        schoolName,
+        title,
+        subtitle,
+        description,
+        url,
+      });
+
+      return NextResponse.json(
+        { message: 'Certificate added successfully' },
+        { status: 200 }
+      );
+    } catch (validationError) {
+      // Handle Yup validation errors
+      if (validationError instanceof Yup.ValidationError) {
+        const yupErrors = validationError.inner.map((err) => ({
+          path: err.path,
+          message: err.message,
+        }));
 
         return NextResponse.json(
-          { message: "Certificate added successfully" },
-          { status: 200 }
-        );
-      } catch (error) {
-        console.error(error);
-        return NextResponse.json(
-          { error: "Internal Server Error" },
-          { status: 500 }
+          { error: 'Validation Error', validationErrors: yupErrors },
+          { status: 400 }
         );
       }
-    } else {
+
+      console.error(validationError);
       return NextResponse.json(
-        { errors: result.error.errors },
-        { status: 400 }
+        { error: 'Internal Server Error' },
+        { status: 500 }
       );
     }
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: 'Internal Server Error' },
       { status: 500 }
     );
   }

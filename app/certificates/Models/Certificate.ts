@@ -1,6 +1,7 @@
 export interface Certificate {
+  schoolName: string;
   title: string;
-  subtitle: string | null;
-  description: string | null;
-  url: string | null;
+  subtitle: string;
+  description: string;
+  url: string;
 }

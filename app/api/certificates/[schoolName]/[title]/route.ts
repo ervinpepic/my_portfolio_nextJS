@@ -20,33 +20,23 @@ export async function DELETE(
       return new Response("Missing 'schoolName' or 'title' parameter", { status: 400 });
     }
 
-    const schoolQuery = query(
+    const certificateQuery = query(
       collection(firestoreDB, "certificates"),
-      where("schoolName", "==", params.schoolName)
+      where("schoolName", "==", params.schoolName),
+      where("title", "==", params.title)
     );
-    const schoolSnapshot = await getDocs(schoolQuery);
+    
+    const certificateSnapshot = await getDocs(certificateQuery);
 
-    if (schoolSnapshot.size > 0) {
-      const existingSchoolRef = schoolSnapshot.docs[0].ref;
+    if (certificateSnapshot.size > 0) {
+      const certificateRef = certificateSnapshot.docs[0].ref;
 
-      // Find the certificate with the specified title and delete it
-      const updatedCertificates = schoolSnapshot.docs[0].data().certificates.filter(
-        (certificate: Certificate) => certificate.title !== params.title
-      );
+      // Delete the certificate document
+      await deleteDoc(certificateRef);
 
-      if (updatedCertificates.length > 0) {
-        // If there are remaining certificates, update the school entry
-        await updateDoc(existingSchoolRef, {
-          certificates: updatedCertificates,
-        });
-      } else {
-        // If no more certificates, delete the entire school entry
-        await deleteDoc(existingSchoolRef);
-        return NextResponse.json({ message: "School and certificate deleted successfully" }, { status: 200 });
-      }
       return NextResponse.json({ message: "Certificate deleted successfully" }, { status: 200 });
     } else {
-      return NextResponse.json({ message: "School not found" }, { status: 404 });
+      return NextResponse.json({ message: "Certificate not found" }, { status: 404 });
     }
   } catch (error) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

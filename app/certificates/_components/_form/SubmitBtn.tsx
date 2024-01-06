@@ -1,30 +1,26 @@
-const classNames = {
-  btnDisabled:
-    "text-gray-400 bg-gray-700 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-600 cursor-not-allowed",
-  btnEnabled:
-    "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
-};
-
+import { FormikErrors, FormikTouched } from "formik";
+import { Certificate } from "../../Models/Certificate";
+import { btnClassNames } from "./FormClasses";
 const SubmitBtn = ({
-  onClick,
-  label,
   loading,
-  errors
+  errors,
+  touched,
 }: {
-  onClick: () => void;
-  label: string;
   loading: boolean;
-  errors: Record<string, string>;
+  errors: FormikErrors<Certificate>;
+  touched: FormikTouched<Certificate>;
 }) => {
-  const isDisabled = loading || Object.keys(errors).length > 0;
+  const hasErrors =
+    Object.keys(touched).length > 0 && Object.values(errors).some(Boolean);
   return (
     <button
-      className={isDisabled ? classNames.btnDisabled : classNames.btnEnabled}
+      className={
+        hasErrors ? btnClassNames.btnDisabled : btnClassNames.btnEnabled
+      }
       type="submit"
-      onClick={onClick}
-      disabled={isDisabled}
+      disabled={hasErrors} // Disable the button if there are errors
     >
-      {loading ? "Loading.." : label}
+      {loading ? "Creating..." : "Add a certificate"}
     </button>
   );
 };

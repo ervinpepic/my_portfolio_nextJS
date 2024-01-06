@@ -3,8 +3,8 @@ import { Raleway } from "next/font/google";
 import ThemeModeSwitcher from "./ThemeModeSwitcher";
 import styles from "./ThemeModeSwitcher.module.css";
 import ThemeProviderApp from "./ThemeProviderApp";
-import "./globals.css";
 import AuthProvider from "./auth/Provider";
+import "./globals.css";
 
 const inter = Raleway({ subsets: ["latin"] });
 
