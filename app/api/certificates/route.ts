@@ -1,5 +1,5 @@
 import { Certificate } from "@/app/certificates/Models/Certificate";
-import { validationSchema } from "@/app/certificates/validators/YupValidationSchema";
+import { validationSchema } from "@/app/certificates/_components/_form/validators/YupValidationSchema";
 import { firestoreDB } from "@/app/firebase/config";
 import {
   addDoc,
@@ -64,7 +64,6 @@ export async function POST(request: NextRequest) {
         { status: 200 }
       );
     } catch (validationError) {
-      // Handle Yup validation errors
       if (validationError instanceof Yup.ValidationError) {
         const yupErrors = validationError.inner.map((err) => ({
           path: err.path,
@@ -76,7 +75,6 @@ export async function POST(request: NextRequest) {
           { status: 400 }
         );
       }
-
       console.error(validationError);
       return NextResponse.json(
         { error: 'Internal Server Error' },

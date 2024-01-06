@@ -3,7 +3,7 @@ const ToastMessage = ({
   messageType,
   successMessage = "Operation successful.",
   errorMessage = "Operation failed.",
-  onClose
+  onClose,
 }: {
   formName: string;
   messageType: "success" | "danger";

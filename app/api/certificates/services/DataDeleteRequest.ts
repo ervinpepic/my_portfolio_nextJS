@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 export const useDataDeleting = () => {
-  const [forceUpdate, setForceUpdate] = useState(false);
+  const [forceRefetch, setForceRefetch] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
@@ -22,7 +22,7 @@ export const useDataDeleting = () => {
         setTimeout(() => {
           setShowSuccessToast(false);
         }, 4000);
-        setForceUpdate((prev) => !prev);
+        setForceRefetch((prev) => !prev);
       } else {
         console.error("Delete failed", response.data);
         setShowErrorToast(true);
@@ -43,7 +43,7 @@ export const useDataDeleting = () => {
 
   return {
     handleDelete,
-    forceUpdate,
+    forceRefetch,
     showSuccessToast,
     setShowSuccessToast,
     deleteLoading,

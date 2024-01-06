@@ -1,13 +1,10 @@
-import { Certificate } from "@/app/certificates/Models/Certificate";
 import { firestoreDB } from "@/app/firebase/config";
 import {
   collection,
   deleteDoc,
-  doc,
   getDocs,
   query,
-  updateDoc,
-  where,
+  where
 } from "firebase/firestore";
 import { NextResponse, type NextRequest } from "next/server";
 

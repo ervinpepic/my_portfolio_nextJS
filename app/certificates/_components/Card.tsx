@@ -12,7 +12,7 @@ const Card = () => {
   const { fetchData, fetchLoading } = useDataFetching();
   const {
     handleDelete,
-    forceUpdate,
+    forceRefetch,
     showSuccessToast,
     deleteLoading,
     setShowSuccessToast,
@@ -22,8 +22,7 @@ const Card = () => {
   const [certificatesBySchool, setCertificatesBySchool] = useState<
     Record<string, Certificate[]>
   >({});
-  const { status, data: session } = useSession();
-
+  const { status } = useSession();
   useEffect(() => {
     const getCertificates = async () => {
       try {
@@ -33,7 +32,7 @@ const Card = () => {
       }
     };
     getCertificates();
-  }, [fetchData, forceUpdate]);
+  }, [fetchData, forceRefetch]);
 
   return (
     <>

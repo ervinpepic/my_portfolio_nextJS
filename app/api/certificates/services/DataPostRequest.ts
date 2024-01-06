@@ -1,5 +1,5 @@
 import { Certificate } from "@/app/certificates/Models/Certificate";
-import { validationSchema } from "@/app/certificates/validators/YupValidationSchema";
+import { validationSchema } from "@/app/certificates/_components/_form/validators/YupValidationSchema";
 import axios from "axios";
 import { useState } from "react";
 

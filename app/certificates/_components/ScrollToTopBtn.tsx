@@ -3,14 +3,15 @@ import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
-const PiArrowUpThinDynamic = dynamic(
-  () => import("react-icons/pi").then((module) => module.PiArrowUpThin),
-  { ssr: false }
-);
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { theme } = useTheme();
+
+  const PiArrowUpThinDynamic = dynamic(
+    () => import("react-icons/pi").then((module) => module.PiArrowUpThin),
+    { ssr: false }
+  );
 
   const scrollToTop = () => {
     window.scrollTo({
