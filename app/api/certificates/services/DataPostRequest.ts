@@ -23,6 +23,9 @@ export const useDataPosting = () => {
           `Certificate added successfully: ${newCertificate.schoolName}`
         );
         setIsCreatePostSuccess(true);
+        setTimeout(() => {
+          setIsCreatePostSuccess(false);
+        }, 4000);
         // Reset errors state if needed
       } else {
         console.error(

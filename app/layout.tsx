@@ -9,6 +9,7 @@ import "./globals.css";
 const inter = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  applicationName: "Ervin Pepic Portfolio",
   title: "Ervin Pepic | Portfolio",
   description: "Software developer portfolio",
   metadataBase: new URL("https://my-portfolio-next-js-pi.vercel.app/"),
@@ -38,6 +39,12 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/static/images/favicons/site.webmanifest",
+  appleWebApp: true,
+  keywords: [
+    "Software developer",
+    "portfolio",
+    "developer"
+  ]
 };
 
 export default function RootLayout({
