@@ -24,10 +24,7 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    apple: [
-      "/static/images/favicons/apple-touch-icon.png",
-      "/static/images/favicons/safari-pinned-tab.svg",
-    ],
+    apple: "/static/images/apple-touch-icon.png",
     icon: "/static/images/favicons/mstile-144x144.png",
   },
   twitter: {
