@@ -13,7 +13,7 @@ const page = async () => {
           {session && (
             <h1 className="text-center text-3xl font-thin tracking-wide text-gray-700 dark:text-slate-200 mb-6">
               Logged in as {session.user?.name} 
-              <Link className={`mx-4 ${btnClassNames.btnEnabled}`} href='/api/auth/signout'>LogOut</Link>
+              <a className={`mx-4 ${btnClassNames.btnEnabled}`} href='/api/auth/signout'>LogOut</a>
             </h1>
           )}
           <h1 className="text-center md:text-start text-3xl font-semibold tracking-wide text-gray-700 dark:text-slate-200">
