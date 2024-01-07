@@ -35,7 +35,7 @@ const ToastMessage = ({
 
   return (
     <div
-      className={`absolute right-5 top-5 ${getClassName()} rounded-b px-4 py-3 shadow-md`}
+      className={`fixed right-5 top-5 ${getClassName()} rounded-b px-4 py-3 shadow-md`}
       role="alert"
     >
       <div className="flex">
