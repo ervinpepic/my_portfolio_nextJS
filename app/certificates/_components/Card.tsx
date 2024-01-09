@@ -6,7 +6,7 @@ import LoadingSkeleton from "./LoadingSkeleton";
 import DeleteBtn from "./_form/DeleteBtn";
 import ToastMessage from "./_form/ToastMessage";
 import { useSession } from "next-auth/react";
-import { Certificate } from "../Models/Certificate";
+import { Certificate } from "../Interfaces/Certificate";
 
 const Card = () => {
   const { fetchData, fetchLoading } = useDataFetching();
@@ -81,8 +81,8 @@ const Card = () => {
                     )}
                   </div>
                   <h3
-                    className="text-lg font-medium text-slate-700 dark:text-slate-200 ]
-                    pt-2 mt-2 mx-2 px-2 "
+                    className="text-lg font-medium text-slate-700 dark:text-slate-200
+                      pt-2 mt-2 mx-2 px-2 "
                   >
                     {certficaite.title}
                   </h3>

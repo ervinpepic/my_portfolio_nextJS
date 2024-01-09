@@ -1,4 +1,4 @@
-import { Certificate } from "@/app/certificates/Models/Certificate";
+import { Certificate } from "@/app/certificates/Interfaces/Certificate";
 import axios from "axios";
 import { useCallback, useState } from "react";
 

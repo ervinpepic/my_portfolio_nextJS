@@ -1,4 +1,4 @@
-import { Certificate } from "@/app/certificates/Models/Certificate";
+import { Certificate } from "@/app/certificates/Interfaces/Certificate";
 import { validationSchema } from "@/app/certificates/_components/_form/validators/YupValidationSchema";
 import axios from "axios";
 import { useState } from "react";

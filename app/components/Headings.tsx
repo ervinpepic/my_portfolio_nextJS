@@ -1,6 +1,5 @@
 const HeadinsAndSubheadings = () => {
   return (
-    <>
       <div className="flex flex-col text-center">
         <h3
           className="mt-5 md:mt-10 text-3xl 
@@ -12,7 +11,6 @@ const HeadinsAndSubheadings = () => {
           Software Developer
         </h5>
       </div>
-    </>
   );
 };
 

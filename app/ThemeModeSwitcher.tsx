@@ -15,7 +15,7 @@ const ThemeModeSwitcher = () => {
 
   return (
     <button
-      className={`w-10 h-10 absolute right-5 top-5 px-2 rounded-full 
+      className={`w-10 h-10 fixed right-5 top-5 px-2 rounded-full 
         hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >

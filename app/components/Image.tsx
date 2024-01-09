@@ -20,14 +20,14 @@ const ImageComponent = () => {
 
   return (
     <div className="flex flex-col items-center">
-    <Image
-      className="rounded-circle mt-12 md:mt-20"
-      src={ImgSrc}
-      alt="Profile Photo"
-      width={200}
-      height={200}
-      priority={true}
-    />
+      <Image
+        className="rounded-circle mt-12 md:mt-20"
+        src={ImgSrc}
+        alt="Profile Photo"
+        width={200}
+        height={200}
+        priority={true}
+      />
     </div>
   );
 };

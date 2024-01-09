@@ -6,13 +6,14 @@ import ThemeProviderApp from "./ThemeProviderApp";
 import AuthProvider from "./auth/Provider";
 import "./globals.css";
 
-const inter = Raleway({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   applicationName: "Ervin Pepic Portfolio",
   title: "Ervin Pepic | Portfolio",
   description: "Software developer portfolio",
   metadataBase: new URL("https://my-portfolio-next-js-pi.vercel.app/"),
+
   openGraph: {
     title: "Ervin Pepic Porfolio",
     url: "https://my-portfolio-next-js-pi.vercel.app/",
@@ -24,10 +25,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   icons: {
     apple: "/static/images/apple-touch-icon.png",
     icon: "/static/images/favicons/mstile-144x144.png",
   },
+
   twitter: {
     card: "summary_large_image",
     description: "Software Developer Portfolio",
@@ -38,9 +41,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   manifest: "/static/images/favicons/site.webmanifest",
   appleWebApp: true,
-  keywords: ["Software developer", "portfolio", "developer"],
+  keywords: ["software developer", "portfolio", "developer", "ervin pepic"],
 };
 
 export default function RootLayout({
@@ -51,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-gray-100 dark:bg-[#2c333e]
+        className={`${raleway.className} bg-gray-100 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}
       >
         <AuthProvider>

@@ -1,5 +1,5 @@
 import { FormikErrors, FormikTouched } from "formik";
-import { Certificate } from "../../Models/Certificate";
+import { Certificate } from "../../Interfaces/Certificate";
 import { btnClassNames } from "./FormClasses";
 const SubmitBtn = ({
   loading,
