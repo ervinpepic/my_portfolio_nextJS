@@ -1,4 +1,4 @@
-import { Contact, Links } from "../interfaces/ContactDevDataInterface";
+import { Contact, Links } from "../interfaces/Contact";
 import { PiFileTextThin, PiFilesThin } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import {
