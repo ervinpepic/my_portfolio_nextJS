@@ -10,4 +10,6 @@ export const tailWindClasses = {
     "flex justify-center md:text-lg text-xl text-gray-700 dark:text-slate-200 m-4 p-2",
   linkClass:
     "text-gray-700 dark:text-slate-200 hover:text-opacity-70 dark:hover:text-opacity-70 hover:scale-110 dark:hover:scale-110 duration-300 dark:duration-300 mx-4 text-5xl",
+  socialLinkclass:
+    "text-gray-700 hover:text-opacity-70 hover:scale-125 duration-300 dark:text-slate-200 dark:hover:text-opacity-70 dark:hover:scale-125 dark:duration-300 m-2 text-4xl",
 };

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { PiCertificateThin } from "react-icons/pi";
-import { Links } from "../interfaces/Contact";
+import { Links } from "../interfaces/ContactDevDataInterface";
 import { tailWindClasses } from "./CardTailwindClasses";
 
 const ContactCard = ({
@@ -26,6 +26,7 @@ const ContactCard = ({
     paragraphClass,
     iconClass,
     linkClass,
+    socialLinkclass,
   } = tailWindClasses;
   return (
     <div className={cardClass}>
@@ -45,7 +46,7 @@ const ContactCard = ({
       <p className={paragraphClass}>{description}</p>
       <div className={iconClass}>
         {contactLinks.map((socLink, index) => (
-          <a key={index} href={socLink.url} className={linkClass}>
+          <a key={index} href={socLink.url} className={socialLinkclass}>
             {<socLink.Icon />}
           </a>
         ))}
