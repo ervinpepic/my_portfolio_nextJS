@@ -1,4 +1,3 @@
-
 import { BiLogoDjango, BiLogoFlask } from "react-icons/bi";
 import { DiPostgresql } from "react-icons/di";
 import { FaLaravel, FaPhp, FaReact, FaWordpressSimple } from "react-icons/fa";
@@ -13,17 +12,17 @@ import {
   TbBrandPython,
   TbBrandTypescript,
 } from "react-icons/tb";
-import { CardDataStructureInterface } from "../interfaces/WebDevDataInterface";
+import { Skills } from "../interfaces/Skills";
 
-export const webDevCardData: CardDataStructureInterface = {
+export const webDevCardData: Skills = {
   title: "Web Development",
   subtitles: {
     first: "Programming languages and frameworks",
-    second: "Dadabases",
+    second: "Databases",
   },
   programmingLang: [
     {
-      name: "Typescrypt | Javascript",
+      name: "TypeScript | JavaScript",
       framework: "Angular, React, Next.js",
     },
     {
@@ -35,7 +34,7 @@ export const webDevCardData: CardDataStructureInterface = {
       framework: "Django, Flask",
     },
   ],
-  other: [
+  otherSkills: [
     {
       name: "SQL",
       framework: "Mysql, Postgres",
@@ -61,6 +60,6 @@ export const webDevCardData: CardDataStructureInterface = {
     SiMysql,
     DiPostgresql,
     TbBrandMongodb,
-    TbBrandFirebase
+    TbBrandFirebase,
   ],
 };
