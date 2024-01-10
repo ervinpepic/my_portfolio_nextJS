@@ -1,6 +1,6 @@
 const HeadinsAndSubheadings = () => {
   return (
-      <div className="flex flex-col text-center">
+      <div className="flex flex-col items-center">
         <h3
           className="mt-5 md:mt-10 text-3xl 
           font-medium text-gray-700 dark:text-slate-200 tracking-wider"

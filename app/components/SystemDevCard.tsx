@@ -1,10 +1,10 @@
 import { systemDevCardData } from "../Models/SystemDevCardData";
-import SklissCard from "./SkillsCard";
+import BaseCardLayout from "./BaseCardLayout";
 
 const SystemDevCard = () => {
   const { title, subtitles, programmingLang, otherSkills, icons } = systemDevCardData;
   return (
-    <SklissCard
+    <BaseCardLayout
       title={title}
       programmingLanguagesSubtitle={subtitles.first}
       programmingLang={programmingLang}

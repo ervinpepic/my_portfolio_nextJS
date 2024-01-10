@@ -1,10 +1,10 @@
 import { webDevCardData } from "../Models/WebDevCardData";
-import SkillsCard from "./SkillsCard";
+import BaseCardLayout from "./BaseCardLayout";
 
 const WebDevCard = () => {
   const { title, subtitles, programmingLang, otherSkills, icons } = webDevCardData;
   return (
-    <SkillsCard
+    <BaseCardLayout
       title={title}
       programmingLanguagesSubtitle={subtitles.first}
       programmingLang={programmingLang}

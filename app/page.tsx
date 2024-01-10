@@ -8,10 +8,9 @@ export default function Home() {
   return (
     <>
       <ImageComponent />
-
       <HeadinsAndSubheadings />
-      <div className="container mx-auto lg:px-24 px-4">
-        <div className="grid xl:grid-cols-3 xl:gap-4 md:grid-cols-2 md:gap-3 mt-6">
+      <div className="container mx-auto lg:px-24 px-2">
+        <div className="grid grid-cols-1 xl:grid-cols-3 xl:gap-4 md:grid-cols-2 md:gap-3 mt-6">
           <WebDevCard />
           <SystemDevCard />
           <ResumeContactCard />
