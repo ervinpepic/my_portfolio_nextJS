@@ -56,7 +56,7 @@ const ToastMessage = ({
         </div>
         <button
           type="button"
-          className="absolute top-0 right-0 mt-1 mr-2 text-xl font-semibold cursor-pointer focus:outline-none"
+          className="text-xl font-semibold cursor-pointer focus:outline-none absolute top-0 right-0 mt-1 mr-2"
           onClick={onClose}
         >
           &times;

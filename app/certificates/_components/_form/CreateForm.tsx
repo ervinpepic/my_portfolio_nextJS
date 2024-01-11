@@ -52,7 +52,7 @@ const CreateForm = () => {
           onClose={() => setShowErrorToast(false)}
         />
       )}
-      <div className="mt-10 grid gap-6 mb-6 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2 mt-10 mb-6">
         {formFields.map((field) => (
           <div key={field.name}>
             <label htmlFor={field.name}>{field.label}</label>
@@ -80,7 +80,7 @@ const CreateForm = () => {
             </div>
           </div>
         ))}
-        <div className="md:col-span-2 mt-6">
+        <div className="md:col-span-2 mt-4">
           <SubmitBtn
             loading={isCreatePostloading}
             errors={errors}

@@ -26,7 +26,8 @@ const ContactCard = ({
     paragraphClass,
     iconClass,
     linkClass,
-    socialLinkclass,
+    linkIconSize,
+    socLinkIconSize,
   } = tailWindClasses;
   return (
     <div className={cardClass}>
@@ -34,11 +35,11 @@ const ContactCard = ({
       <h4 className={subtitlessClass}>{subtitleFirst}</h4>
       <div className={iconClass}>
         {cvLinks.map((link, index) => (
-          <a key={index} href={link.url} className={linkClass}>
+          <a key={index} href={link.url} className={`${linkClass} ${linkIconSize}`}>
             {<link.Icon />}
           </a>
         ))}
-        <Link href={"/certificates"} className={linkClass}>
+        <Link href={"/certificates"} className={`${linkClass} ${linkIconSize}`}>
           <PiCertificateThin />
         </Link>
       </div>
@@ -46,7 +47,7 @@ const ContactCard = ({
       <p className={paragraphClass}>{description}</p>
       <div className={iconClass}>
         {contactLinks.map((socLink, index) => (
-          <a key={index} href={socLink.url} className={socialLinkclass}>
+          <a key={index} href={socLink.url} className={`${linkClass} ${socLinkIconSize}`}>
             {<socLink.Icon />}
           </a>
         ))}

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
-import ThemeModeSwitcher from "./ThemeModeSwitcher";
-import styles from "./ThemeModeSwitcher.module.css";
-import ThemeProviderApp from "./ThemeProviderApp";
+import ThemeModeSwitcher from "./Theme/ThemeModeSwitcher";
+import styles from "./Theme/ThemeModeSwitcher.module.css";
+import ThemeProviderApp from "./Theme/ThemeProviderApp";
 import AuthProvider from "./auth/Provider";
 import "./globals.css";
 
@@ -59,12 +59,8 @@ export default function RootLayout({
               ${styles.themeSwitcher}`}
       >
         <AuthProvider>
-          <ThemeProviderApp
-            attribute="class"
-            enableSystem={false}
-            defaultTheme="dark"
-          >
-            <ThemeModeSwitcher></ThemeModeSwitcher>
+          <ThemeProviderApp attribute="class" enableSystem={false} defaultTheme="dark">
+            <ThemeModeSwitcher />
             <main>{children}</main>
           </ThemeProviderApp>
         </AuthProvider>
