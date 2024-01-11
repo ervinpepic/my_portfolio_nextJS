@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import Card from "./_components/Card";
-import CertificateHeader from "./_components/Header";
+import Headings from "./_components/Headings";
 import ScrollToTopButton from "./_components/ScrollToTopBtn";
 
 const Certificates = () => {
   return (
     <div className="container mx-auto lg:px-24 px-4">
-      <CertificateHeader />
+      <Headings />
       <Card />
       <ScrollToTopButton />
     </div>

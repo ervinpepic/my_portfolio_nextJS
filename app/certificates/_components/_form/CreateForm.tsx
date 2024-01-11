@@ -8,18 +8,23 @@ import SubmitBtn from "./SubmitBtn";
 import ToastMessage from "./ToastMessage";
 
 const CreateForm = () => {
-
   const {
     addCertificate,
     isCreatePostloading,
     showSuccessToast,
     setShowSuccessToast,
     showErrorToast,
-    setShowErrorToast
+    setShowErrorToast,
   } = useDataPosting();
 
   const formik = useFormik({
-    initialValues: { schoolName: "", title: "", subtitle: "", description: "", url: "" },
+    initialValues: {
+      schoolName: "",
+      title: "",
+      subtitle: "",
+      description: "",
+      url: "",
+    },
     validationSchema: validationSchema,
 
     onSubmit: async (values) => {
@@ -35,7 +40,7 @@ const CreateForm = () => {
   const { errors, touched, values, handleChange, handleSubmit } = formik;
 
   return (
-    <form onSubmit={handleSubmit} method="POST">
+    <>
       {showSuccessToast && (
         <ToastMessage
           formName="create"
@@ -52,43 +57,47 @@ const CreateForm = () => {
           onClose={() => setShowErrorToast(false)}
         />
       )}
-      <div className="grid gap-6 md:grid-cols-2 mt-10 mb-6">
-        {formFields.map((field) => (
-          <div key={field.name}>
-            <label htmlFor={field.name}>{field.label}</label>
-            <div className="mt-2" key={field.name}>
-              <input
-                id={field.name}
-                type={field.type}
-                name={field.name}
-                value={values[field.name as keyof typeof values]}
-                onChange={handleChange}
-                placeholder={field.placeholder}
-                className={`${formClassNames.initClass} ${
-                  errors[field.name as keyof typeof errors] &&
-                  touched[field.name as keyof typeof errors]
-                    ? formClassNames.errorClass
-                    : ""
-                }`}
-              />
-              {errors[field.name as keyof typeof errors] &&
-                touched[field.name as keyof typeof errors] && (
-                  <span className="text-red-700">
-                    {errors[field.name as keyof typeof errors]}
-                  </span>
-                )}
+      <form onSubmit={handleSubmit} method="POST" className="grid gap-6 md:grid-cols-2 mt-10 mb-6">
+        
+          {formFields.map((field) => (
+            <div key={field.name}>
+              <label htmlFor={field.name} className={formClassNames.labelClass}>
+                {field.label}
+              </label>
+              <div className="mt-2" key={field.name}>
+                <input
+                  id={field.name}
+                  type={field.type}
+                  name={field.name}
+                  value={values[field.name as keyof typeof values]}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className={`${formClassNames.initClass} ${
+                    errors[field.name as keyof typeof errors] &&
+                    touched[field.name as keyof typeof errors]
+                      ? formClassNames.errorClass
+                      : ""
+                  }`}
+                />
+                {errors[field.name as keyof typeof errors] &&
+                  touched[field.name as keyof typeof errors] && (
+                    <span className="text-red-700">
+                      {errors[field.name as keyof typeof errors]}
+                    </span>
+                  )}
+              </div>
             </div>
+          ))}
+          <div className="md:col-span-2 mt-4">
+            <SubmitBtn
+              loading={isCreatePostloading}
+              errors={errors}
+              touched={touched}
+            />
           </div>
-        ))}
-        <div className="md:col-span-2 mt-4">
-          <SubmitBtn
-            loading={isCreatePostloading}
-            errors={errors}
-            touched={touched}
-          />
-        </div>
-      </div>
-    </form>
+        
+      </form>
+    </>
   );
 };
 export default CreateForm;

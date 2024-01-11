@@ -1,7 +1,7 @@
 import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from "next-auth";
 
-const CertificateHeader = async () => {
+const Headings = async () => {
   const session = await getServerSession(authOptions);
   return (
     <div className="flex flex-col mt-4 md:mt-10 mb-16">
@@ -25,4 +25,4 @@ const CertificateHeader = async () => {
   );
 };
 
-export default CertificateHeader;
+export default Headings;
