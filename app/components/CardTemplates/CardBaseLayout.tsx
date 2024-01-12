@@ -1,4 +1,4 @@
-import { tailWindClasses } from "./CardTailwindClasses";
+import { homeCardClasses } from "./HomeCardClasses";
 
 const BaseCardLayout = ({
   title,
@@ -15,7 +15,7 @@ const BaseCardLayout = ({
   otherSkills: { name: string; framework: string }[];
   icons: React.ComponentType<{}>[];
 }) => {
-  const {cardClass, titelClass, subtitlessClass, paragraphClass, iconClass} = tailWindClasses;
+  const {cardClass, titelClass, subtitlessClass, paragraphClass, iconClass} = homeCardClasses;
   return (
     <div className={cardClass}>
       <h3 className={titelClass}>{title}</h3>

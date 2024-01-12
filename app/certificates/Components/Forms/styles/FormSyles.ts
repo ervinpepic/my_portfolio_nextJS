@@ -1,4 +1,4 @@
-export const formClassNames = {
+export const formClass = {
   initClass: "text-sm rounded-lg dark:bg-gray-700 block w-full p-2.5 border",
 
   errorClass:

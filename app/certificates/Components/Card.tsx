@@ -1,12 +1,12 @@
 "use client";
-import { useDataDeleting } from "@/app/api/certificates/services/DataDeleteRequest";
-import { useDataFetching } from "@/app/api/certificates/services/DataFetchRequest";
+import { useDataDeleting } from "@/app/api/certificates/services/DeleteRequest";
+import { useDataFetching } from "@/app/api/certificates/services/FetchRequest";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { Certificate } from "../Interfaces/Certificate";
-import BaseCardLayout from "./BaseCardLayout";
-import LoadingSkeleton from "./LoadingSkeleton";
-import ToastMessage from "./_form/ToastMessage";
+import { Certificate } from "../Types/Certificate";
+import BaseCardLayout from "./CardTemplates/BaseCardLayout";
+import LoadingSkeleton from "./CardTemplates/LoadingSkeleton";
+import ToastMessage from "./Forms/ToastMessage";
 
 const Card = () => {
   const { status } = useSession();

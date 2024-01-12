@@ -3,7 +3,7 @@ import { FaGolang } from "react-icons/fa6";
 import { PiAndroidLogoThin } from "react-icons/pi";
 import { SiJetbrains, SiVisualstudio } from "react-icons/si";
 import { TbBrandCpp, TbBrandKotlin, TbBrandSwift } from "react-icons/tb";
-import { Skills } from "../interfaces/Skills";
+import { Skills } from "../Types/Skills";
 
 export const systemDevCardData: Skills = {
   title: "System programming",

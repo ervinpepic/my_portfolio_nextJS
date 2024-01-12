@@ -1,4 +1,4 @@
-import { Contact, Links } from "../interfaces/Contact";
+import { Contact, Links } from "../Types/Contact";
 import { PiFileTextThin, PiFilesThin } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import {
@@ -19,13 +19,13 @@ const X = "https://twitter.com/pepic__ervin?lang=en";
 const INSTAGRAM = "https://instagram.com/pepic__ervin";
 
 export const contactData: Contact = {
-  title: "Contact Section",
+  title: "Contact",
   subtitles: {
-    first: "Explore my qualifications, skills, and experience in detail",
+    first: "Explore my qualifications, skills, and experience in detail.",
     second: "Social networks",
   },
   description:
-    "You can get in touch with me throug one of these social networks",
+    "You can get in touch with me throug one of these social networks.",
   links: [
     {
       url: CV_URL,

@@ -1,12 +1,12 @@
-import { Certificate } from "@/app/certificates/Interfaces/Certificate";
-import { validationSchema } from "@/app/certificates/_components/_form/validators/YupValidationSchema";
+import { validationSchema } from "@/app/certificates/Components/Forms/validators/YupValidationSchema";
+import { Certificate } from "@/app/certificates/Types/Certificate";
 import { firestoreDB } from "@/app/firebase/config";
 import {
   addDoc,
   collection,
   getDocs,
   orderBy,
-  query
+  query,
 } from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
 import * as Yup from "yup";
@@ -14,9 +14,9 @@ import * as Yup from "yup";
 export async function GET(request: NextRequest) {
   try {
     const orderedCertificateList = query(
-      collection(firestoreDB, 'certificates'),
-      orderBy('schoolName', 'asc')
-    )
+      collection(firestoreDB, "certificates"),
+      orderBy("schoolName", "asc")
+    );
     const querySnapshot = await getDocs(orderedCertificateList);
     const certificatesBySchool: Record<string, Certificate[]> = {};
 
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       const { schoolName, title, subtitle, description, url } = body;
 
       // Add a new document to the "certificates" collection
-      await addDoc(collection(firestoreDB, 'certificates'), {
+      await addDoc(collection(firestoreDB, "certificates"), {
         schoolName,
         title,
         subtitle,
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       });
 
       return NextResponse.json(
-        { message: 'Certificate added successfully' },
+        { message: "Certificate added successfully" },
         { status: 200 }
       );
     } catch (validationError) {
@@ -71,20 +71,20 @@ export async function POST(request: NextRequest) {
         }));
 
         return NextResponse.json(
-          { error: 'Validation Error', validationErrors: yupErrors },
+          { error: "Validation Error", validationErrors: yupErrors },
           { status: 400 }
         );
       }
       console.error(validationError);
       return NextResponse.json(
-        { error: 'Internal Server Error' },
+        { error: "Internal Server Error" },
         { status: 500 }
       );
     }
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { error: 'Internal Server Error' },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }

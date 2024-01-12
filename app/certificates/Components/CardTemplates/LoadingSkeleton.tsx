@@ -1,5 +1,5 @@
-import { tailWindClasses } from "@/app/components/CardTailwindClasses";
 import React from "react";
+import { certificateCardClass } from "./CertificateCardStyle";
 
 const LoadingSkeleton = ({ skeletonCount }: { skeletonCount: number }) => {
   const placeholderArray = Array.from({ length: skeletonCount });
@@ -11,7 +11,7 @@ const LoadingSkeleton = ({ skeletonCount }: { skeletonCount: number }) => {
     skeletonParagraphClass,
     skeletonParagraphClass2,
     skeletonLinkClass,
-  } = tailWindClasses;
+  } = certificateCardClass;
   return (
     <React.Fragment>
       {placeholderArray.map((_, rowIndex) => (

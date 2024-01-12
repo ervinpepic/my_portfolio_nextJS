@@ -1,5 +1,5 @@
-import { Certificate } from "@/app/certificates/Interfaces/Certificate";
-import { validationSchema } from "@/app/certificates/_components/_form/validators/YupValidationSchema";
+import { validationSchema } from "@/app/certificates/Components/Forms/validators/YupValidationSchema";
+import { Certificate } from "@/app/certificates/Types/Certificate";
 import axios from "axios";
 import { useState } from "react";
 
@@ -46,6 +46,6 @@ export const useDataPosting = () => {
     showSuccessToast,
     setShowSuccessToast,
     showErrorToast,
-    setShowErrorToast
+    setShowErrorToast,
   };
 };

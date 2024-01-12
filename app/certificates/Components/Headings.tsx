@@ -11,10 +11,10 @@ const Headings = async () => {
             Logged in as {session.user?.name}
           </h1>
         )}
-        <h1 className="text-center md:text-start text-3xl font-semibold tracking-wide text-gray-700 dark:text-slate-200">
+        <h1 className="text-center lg:text-start text-3xl font-medium tracking-wide text-gray-700 dark:text-slate-200">
           Certificates & Awards
         </h1>
-        <p className="lg:w-11/12 w-full md:text-start text-center text-lg font-medium text-gray-700 dark:text-slate-200 mt-5">
+        <p className="lg:w-11/12 w-full md:text-start text-center text-lg font-normal text-gray-700 dark:text-slate-200 mt-5">
           This page showcases my achievements in the field of programming
           through certificates and awards. Each recognition represents a
           milestone in my journey, reflecting my dedication to mastering various

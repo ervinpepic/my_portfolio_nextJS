@@ -1,5 +1,5 @@
-import { webDevCardData } from "../Models/WebDevCardData";
-import BaseCardLayout from "./BaseCardLayout";
+import { webDevCardData } from "../Models/WebDevData";
+import BaseCardLayout from "./CardTemplates/CardBaseLayout";
 
 const WebDevCard = () => {
   const { title, subtitles, programmingLang, otherSkills, icons } = webDevCardData;

@@ -1,7 +1,5 @@
-import { SocialLinks, contactData } from "../Models/ContactDevData";
-import { PiCertificateThin } from "react-icons/pi";
-import Link from "next/link";
-import ContactCard from "./ContactCard";
+import { SocialLinks, contactData } from "../Models/ContactData";
+import ContactCard from "./CardTemplates/ContactCardBaseLayout";
 
 const ResumeContactCard = () => {
   const { title, subtitles, links, description } = contactData;

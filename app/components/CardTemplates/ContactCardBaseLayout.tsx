@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import { PiCertificateThin } from "react-icons/pi";
-import { Links } from "../interfaces/Contact";
-import { tailWindClasses } from "./CardTailwindClasses";
+import { Links } from "../../Types/Contact";
+import { tailWindClasses } from "./HomeCardClasses";
 
 const ContactCard = ({
   title,

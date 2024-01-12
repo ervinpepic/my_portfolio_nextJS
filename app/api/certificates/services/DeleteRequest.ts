@@ -48,6 +48,6 @@ export const useDataDeleting = () => {
     setShowSuccessToast,
     deleteLoading,
     showErrorToast,
-    setShowErrorToast
+    setShowErrorToast,
   };
 };

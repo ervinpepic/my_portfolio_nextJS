@@ -1,8 +1,8 @@
-import HeadinsAndSubheadings from "./components/Headings";
-import ImageComponent from "./components/Image";
-import ResumeContactCard from "./components/ResumeContactCard";
-import SystemDevCard from "./components/SystemDevCard";
-import WebDevCard from "./components/WebDevCard";
+import HeadinsAndSubheadings from "./Components/Headings";
+import ImageComponent from "./Components/Image";
+import ResumeContactCard from "./Components/ResumeContactCard";
+import SystemDevCard from "./Components/SystemDevCard";
+import WebDevCard from "./Components/WebDevCard";
 
 export default function Home() {
   return (

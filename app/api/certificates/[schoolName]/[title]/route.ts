@@ -4,7 +4,7 @@ import {
   deleteDoc,
   getDocs,
   query,
-  where
+  where,
 } from "firebase/firestore";
 import { NextResponse, type NextRequest } from "next/server";
 

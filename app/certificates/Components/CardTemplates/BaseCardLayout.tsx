@@ -1,6 +1,6 @@
-import { tailWindClasses } from "@/app/components/CardTailwindClasses";
-import { Certificate } from "../Interfaces/Certificate";
-import DeleteBtn from "./_form/DeleteBtn";
+import { Certificate } from "../../Types/Certificate";
+import DeleteBtn from "../Forms/Buttons/DeleteBtn";
+import { certificateCardClass } from "./CertificateCardStyle";
 
 const BaseCardLayout = ({
   certificatesBySchool,
@@ -20,7 +20,7 @@ const BaseCardLayout = ({
     certSubtitleClass,
     paragraphClass,
     certLinkClass,
-  } = tailWindClasses;
+  } = certificateCardClass;
   return (
     <>
       {Object.entries(certificatesBySchool).map(
