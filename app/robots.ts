@@ -1,12 +1,12 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from "next";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
+      userAgent: "*",
+      allow: "/",
+      disallow: "/private/",
     },
-    sitemap: 'https://my-portfolio-next-js-pi.vercel.app/sitemap.xml',
-  }
+    sitemap: "https://my-portfolio-next-js-pi.vercel.app/sitemap.xml",
+  };
 }

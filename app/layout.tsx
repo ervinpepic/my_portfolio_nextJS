@@ -59,7 +59,11 @@ export default function RootLayout({
               ${styles.themeSwitcher}`}
       >
         <AuthProvider>
-          <ThemeProviderApp attribute="class" enableSystem={false} defaultTheme="dark">
+          <ThemeProviderApp
+            attribute="class"
+            enableSystem={false}
+            defaultTheme="dark"
+          >
             <ThemeModeSwitcher />
             <main>{children}</main>
           </ThemeProviderApp>

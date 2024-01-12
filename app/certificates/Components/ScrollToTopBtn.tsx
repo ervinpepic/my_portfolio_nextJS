@@ -13,7 +13,6 @@ const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { theme } = useTheme();
 
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

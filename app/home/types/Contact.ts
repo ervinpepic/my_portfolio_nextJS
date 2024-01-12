@@ -1,6 +1,6 @@
 export interface Links {
-    url: string,
-    Icon: React.ComponentType<{}>;
+  url: string;
+  Icon: React.ComponentType<{}>;
 }
 export interface Contact {
   title: string;

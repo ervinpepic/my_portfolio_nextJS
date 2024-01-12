@@ -38,7 +38,7 @@ const CreateForm = () => {
   });
 
   const { errors, touched, values, handleChange, handleSubmit } = formik;
-  const {labelClass, initClass, errorClass} = formClass;
+  const { labelClass, initClass, errorClass } = formClass;
   return (
     <>
       {showSuccessToast && (
@@ -64,7 +64,9 @@ const CreateForm = () => {
       >
         {formFields.map((field) => (
           <div key={field.name}>
-            <label htmlFor={field.name} className={labelClass}>{field.label}</label>
+            <label htmlFor={field.name} className={labelClass}>
+              {field.label}
+            </label>
             <div className="mt-2" key={field.name}>
               <input
                 id={field.name}

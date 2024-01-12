@@ -1,4 +1,4 @@
-export const certificateCardClass = {
+export const cardStyle = {
   cardClass: "bg-slate-200 dark:bg-gray-700 rounded-md w-auto h-auto p-1 mb-4",
   paragraphClass:
     "text-base text-gray-700 dark:text-slate-200 mt-2 mx-2 pt-2 px-2",

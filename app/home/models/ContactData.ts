@@ -1,13 +1,12 @@
-import { Contact, Links } from "../Types/Contact";
-import { PiFileTextThin, PiFilesThin } from "react-icons/pi";
 import { CiMail } from "react-icons/ci";
 import {
-  PiGithubLogoThin,
+  PiFileTextThin, PiFilesThin, PiGithubLogoThin,
   PiInstagramLogoThin,
   PiLinkedinLogoThin,
   PiStackOverflowLogoThin,
-  PiTwitterLogoThin,
+  PiTwitterLogoThin
 } from "react-icons/pi";
+import { Contact, Links } from "../types/Contact";
 
 const CV_URL = "/static/images/pdf/cv.pdf";
 const CL_URL = "/static/images/pdf/cl.pdf";

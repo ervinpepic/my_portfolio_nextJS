@@ -12,7 +12,7 @@ import {
   TbBrandPython,
   TbBrandTypescript,
 } from "react-icons/tb";
-import { Skills } from "../Types/Skills";
+import { Skills } from "../types/Skills";
 
 export const webDevCardData: Skills = {
   title: "Web Development",

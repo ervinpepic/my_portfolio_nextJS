@@ -1,5 +1,5 @@
-import { systemDevCardData } from "../Models/SysDevData";
-import BaseCardLayout from "./HomeCardTemplates/HomeCardBaseLayout";
+import { systemDevCardData } from "../models/SysDevData";
+import BaseCardLayout from "./cardTemplates/BaseCardLayout";
 
 const SystemDevCard = () => {
   const { title, subtitles, programmingLang, otherSkills, icons } = systemDevCardData;

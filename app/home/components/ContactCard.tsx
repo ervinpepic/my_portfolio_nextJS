@@ -1,10 +1,10 @@
-import { SocialLinks, contactData } from "../Models/ContactData";
-import ContactCard from "./HomeCardTemplates/HomeContactCardBaseLayout";
+import { SocialLinks, contactData } from "../models/ContactData";
+import ContactCardBaseLayout from "./cardTemplates/ContactCardBaseLayout";
 
-const ResumeContactCard = () => {
+const ContactCard = () => {
   const { title, subtitles, links, description } = contactData;
   return (
-    <ContactCard
+    <ContactCardBaseLayout
       title={title}
       subtitleFirst={subtitles.first}
       cvLinks={links}
@@ -15,4 +15,4 @@ const ResumeContactCard = () => {
   );
 };
 
-export default ResumeContactCard;
+export default ContactCard;

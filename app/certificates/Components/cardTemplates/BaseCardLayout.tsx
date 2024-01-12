@@ -1,6 +1,6 @@
-import { Certificate } from "../../Types/Certificate";
+import { Certificate } from "../../types/Certificate";
 import DeleteBtn from "../forms/Buttons/DeleteBtn";
-import { certificateCardClass } from "./CertificateCardStyle";
+import { cardStyle } from "./CardStyle";
 
 const BaseCardLayout = ({
   certificatesBySchool,
@@ -20,7 +20,7 @@ const BaseCardLayout = ({
     certSubtitleClass,
     paragraphClass,
     certLinkClass,
-  } = certificateCardClass;
+  } = cardStyle;
   return (
     <>
       {Object.entries(certificatesBySchool).map(

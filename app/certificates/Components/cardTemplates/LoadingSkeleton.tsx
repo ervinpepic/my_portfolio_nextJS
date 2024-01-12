@@ -1,5 +1,5 @@
 import React from "react";
-import { certificateCardClass } from "./CertificateCardStyle";
+import { cardStyle } from "./CardStyle";
 
 const LoadingSkeleton = ({ skeletonCount }: { skeletonCount: number }) => {
   const placeholderArray = Array.from({ length: skeletonCount });
@@ -11,7 +11,7 @@ const LoadingSkeleton = ({ skeletonCount }: { skeletonCount: number }) => {
     skeletonParagraphClass,
     skeletonParagraphClass2,
     skeletonLinkClass,
-  } = certificateCardClass;
+  } = cardStyle;
   return (
     <React.Fragment>
       {placeholderArray.map((_, rowIndex) => (

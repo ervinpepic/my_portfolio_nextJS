@@ -3,9 +3,9 @@ import { useDataDeleting } from "@/app/api/certificates/services/DeleteRequest";
 import { useDataFetching } from "@/app/api/certificates/services/FetchRequest";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { Certificate } from "../Types/Certificate";
-import BaseCardLayout from "./CertificateCardTemplates/BaseCardLayout";
-import LoadingSkeleton from "./CertificateCardTemplates/LoadingSkeleton";
+import { Certificate } from "../types/Certificate";
+import BaseCardLayout from "./cardTemplates/BaseCardLayout";
+import LoadingSkeleton from "./cardTemplates/LoadingSkeleton";
 import ToastMessage from "./forms/ToastMessage";
 
 const Card = () => {

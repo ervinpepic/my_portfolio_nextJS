@@ -1,10 +1,9 @@
 import Link from "next/link";
-import React from "react";
 import { PiCertificateThin } from "react-icons/pi";
-import { Links } from "../../Types/Contact";
-import { homeCardClasses } from "./HomeCardClasses";
+import { Links } from "../../types/Contact";
+import { cardStyle } from "./CardStyle";
 
-const ContactCard = ({
+const ContactCardBaseLayout = ({
   title,
   subtitleFirst,
   subtitleSecond,
@@ -28,14 +27,18 @@ const ContactCard = ({
     linkClass,
     linkIconSize,
     socLinkIconSize,
-  } = homeCardClasses;
+  } = cardStyle;
   return (
     <div className={cardClass}>
       <h3 className={titelClass}>{title}</h3>
       <h4 className={subtitlessClass}>{subtitleFirst}</h4>
       <div className={iconClass}>
         {cvLinks.map((link, index) => (
-          <a key={index} href={link.url} className={`${linkClass} ${linkIconSize}`}>
+          <a
+            key={index}
+            href={link.url}
+            className={`${linkClass} ${linkIconSize}`}
+          >
             {<link.Icon />}
           </a>
         ))}
@@ -47,7 +50,11 @@ const ContactCard = ({
       <p className={paragraphClass}>{description}</p>
       <div className={iconClass}>
         {contactLinks.map((socLink, index) => (
-          <a key={index} href={socLink.url} className={`${linkClass} ${socLinkIconSize}`}>
+          <a
+            key={index}
+            href={socLink.url}
+            className={`${linkClass} ${socLinkIconSize}`}
+          >
             {<socLink.Icon />}
           </a>
         ))}
@@ -56,4 +63,4 @@ const ContactCard = ({
   );
 };
 
-export default ContactCard;
+export default ContactCardBaseLayout;

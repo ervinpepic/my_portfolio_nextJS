@@ -1,4 +1,4 @@
-import { homeCardClasses } from "./HomeCardClasses";
+import { cardStyle } from "./CardStyle";
 
 const BaseCardLayout = ({
   title,
@@ -15,13 +15,12 @@ const BaseCardLayout = ({
   otherSkills: { name: string; framework: string }[];
   icons: React.ComponentType<{}>[];
 }) => {
-  const {cardClass, titelClass, subtitlessClass, paragraphClass, iconClass} = homeCardClasses;
+  const { cardClass, titelClass, subtitlessClass, paragraphClass, iconClass } =
+    cardStyle;
   return (
     <div className={cardClass}>
       <h3 className={titelClass}>{title}</h3>
-      <h4 className={subtitlessClass}>
-        {programmingLanguagesSubtitle}
-      </h4>
+      <h4 className={subtitlessClass}>{programmingLanguagesSubtitle}</h4>
       {programmingLang.map((language, index) => (
         <p key={index} className={paragraphClass}>
           <span className="font-medium">{language.name}:&nbsp;</span>
@@ -37,7 +36,9 @@ const BaseCardLayout = ({
       ))}
       <div className={iconClass}>
         {icons.map((Icon, index) => (
-          <span key={index} className="mx-0.5"><Icon /></span>
+          <span key={index} className="mx-0.5">
+            <Icon />
+          </span>
         ))}
       </div>
     </div>

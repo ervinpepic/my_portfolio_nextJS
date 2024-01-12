@@ -11,8 +11,13 @@ const page = async () => {
         <div className="mt-16 lg:mt-20">
           {session && (
             <h1 className="text-center text-3xl font-thin tracking-wide text-gray-700 dark:text-slate-200 mb-6">
-              Logged in as {session.user?.name} 
-              <a className={`mx-4 ${btnClassNames.btnEnabled}`} href='/api/auth/signout'>LogOut</a>
+              Logged in as {session.user?.name}
+              <a
+                className={`mx-4 ${btnClassNames.btnEnabled}`}
+                href="/api/auth/signout"
+              >
+                LogOut
+              </a>
             </h1>
           )}
           <h1 className="text-center md:text-start text-2xl font-semibold tracking-wide text-gray-700 dark:text-slate-200">
