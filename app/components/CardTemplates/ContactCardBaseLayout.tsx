@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { PiCertificateThin } from "react-icons/pi";
 import { Links } from "../../Types/Contact";
-import { tailWindClasses } from "./HomeCardClasses";
+import { homeCardClasses } from "./HomeCardClasses";
 
 const ContactCard = ({
   title,
@@ -28,7 +28,7 @@ const ContactCard = ({
     linkClass,
     linkIconSize,
     socLinkIconSize,
-  } = tailWindClasses;
+  } = homeCardClasses;
   return (
     <div className={cardClass}>
       <h3 className={titelClass}>{title}</h3>
