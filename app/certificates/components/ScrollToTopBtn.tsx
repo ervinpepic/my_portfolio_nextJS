@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
-
+const btnStyle = "w-10 h-10 fixed bottom-10 right-5 px-2 rounded-full hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200"
 const PiArrowUpThinDynamic = dynamic(
   () => import("react-icons/pi").then((module) => module.PiArrowUpThin),
   { ssr: false }
@@ -34,9 +34,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button
-      className={`${isVisible ? "block" : "hidden"}
-            w-10 h-10 fixed bottom-10 right-5 px-2 rounded-full 
-            hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
+      className={`${isVisible ? "block" : "hidden"} ${btnStyle}`}
       onClick={scrollToTop}
     >
       {theme === "dark" ? (

@@ -1,4 +1,4 @@
-# Developer Portfolio - Next.js Project
+# Software Developer Portfolio
 
 Welcome to my developer portfolio project! This project, built with [Next.js](https://nextjs.org/), serves as a showcase of my skills, qualifications, and experience. Feel free to explore and learn more about my journey.
 
@@ -6,7 +6,7 @@ Welcome to my developer portfolio project! This project, built with [Next.js](ht
 
 To run the development server, use one of the following commands:
 
-```bash
+```bash - zsh - cmd
 npm run dev
 # or
 yarn dev
@@ -14,9 +14,14 @@ yarn dev
 pnpm dev
 # or
 bun dev
-Visit http://localhost:3000 in your browser to see the result. You can start editing the page by modifying app/page.tsx, and the page will auto-update as you make changes.
+```
+## View pages
 
-This project leverages next/font for automatic optimization and loading of Inter, a custom Google Font.
+Visit http://localhost:3000 in your browser to see the result. You can start editing the page by modifying home/components/. All components are included into the page.tsx at the app level.
+
+Go to the app/certificates/page.tsx if you want to view and edit certificates page, aslo you can see other components under the certificates/components dir.
+
+This project leverages next/font for automatic optimization and loading of Raleway, a custom Google Font.
 
 Learn More
 To delve deeper into Next.js, explore the following resources:

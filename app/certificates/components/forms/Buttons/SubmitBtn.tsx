@@ -1,6 +1,7 @@
 import { FormikErrors, FormikTouched } from "formik";
 import { Certificate } from "../../../types/Certificate";
 import { btnClassNames } from "../styles/FormSyles";
+const { btnDisabled, btnEnabled} = btnClassNames;
 const SubmitBtn = ({
   loading,
   errors,
@@ -14,9 +15,7 @@ const SubmitBtn = ({
     Object.keys(touched).length > 0 && Object.values(errors).some(Boolean);
   return (
     <button
-      className={
-        hasErrors ? btnClassNames.btnDisabled : btnClassNames.btnEnabled
-      }
+      className={ hasErrors ? btnDisabled : btnEnabled }
       type="submit"
       disabled={hasErrors} // Disable the button if there are errors
     >

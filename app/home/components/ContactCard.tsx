@@ -1,4 +1,4 @@
-import { SocialLinks, contactData } from "../models/ContactData";
+import { SocialLinks, contactData } from "../data/ContactData";
 import ContactCardBaseLayout from "./cardTemplates/ContactCardBaseLayout";
 
 const ContactCard = () => {

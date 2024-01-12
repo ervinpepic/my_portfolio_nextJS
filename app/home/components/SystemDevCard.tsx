@@ -1,4 +1,4 @@
-import { systemDevCardData } from "../models/SysDevData";
+import { systemDevCardData } from "../data/SysDevData";
 import BaseCardLayout from "./cardTemplates/BaseCardLayout";
 
 const SystemDevCard = () => {

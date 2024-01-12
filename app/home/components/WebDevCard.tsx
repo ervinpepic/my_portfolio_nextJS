@@ -1,4 +1,4 @@
-import { webDevCardData } from "../models/WebDevData";
+import { webDevCardData } from "../data/WebDevData";
 import BaseCardLayout from "./cardTemplates/BaseCardLayout";
 
 const WebDevCard = () => {

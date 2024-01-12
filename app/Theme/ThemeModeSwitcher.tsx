@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
 import { PiMoonThin, PiSunThin } from "react-icons/pi";
 
+const themeBtnStyle = "w-10 h-10 fixed right-5 top-5 px-2 rounded-full hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200"
 const ThemeModeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -12,11 +13,9 @@ const ThemeModeSwitcher = () => {
     setMounted(true);
   }, []);
   if (!mounted) return null;
-
   return (
     <button
-      className={`w-10 h-10 fixed right-5 top-5 px-2 rounded-full 
-        hover:scale-150 active:scale-300 duration-300 bg-gray-700 dark:bg-slate-200`}
+      className={themeBtnStyle}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme && theme === "dark" ? (
