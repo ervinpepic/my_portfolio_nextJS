@@ -1,5 +1,5 @@
 import { Certificate } from "../../Types/Certificate";
-import DeleteBtn from "../Forms/Buttons/DeleteBtn";
+import DeleteBtn from "../forms/Buttons/DeleteBtn";
 import { certificateCardClass } from "./CertificateCardStyle";
 
 const BaseCardLayout = ({

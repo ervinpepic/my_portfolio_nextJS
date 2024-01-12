@@ -1,7 +1,7 @@
 import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from "next-auth";
-import CreateForm from "../Components/Forms/CreateForm";
-import { btnClassNames } from "../Components/Forms/styles/FormSyles";
+import CreateForm from "../components/forms/CreateForm";
+import { btnClassNames } from "../components/forms/styles/FormSyles";
 
 const page = async () => {
   const session = await getServerSession(authOptions);

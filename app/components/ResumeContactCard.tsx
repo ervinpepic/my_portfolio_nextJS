@@ -1,5 +1,5 @@
 import { SocialLinks, contactData } from "../Models/ContactData";
-import ContactCard from "./CardTemplates/ContactCardBaseLayout";
+import ContactCard from "./HomeCardTemplates/HomeContactCardBaseLayout";
 
 const ResumeContactCard = () => {
   const { title, subtitles, links, description } = contactData;
