@@ -1,7 +1,7 @@
 import { Metadata } from "next";
+import ScrollToTopButton from "./components/ScrollToTopBtn";
 import Card from "./components/Card";
 import Headings from "./components/Headings";
-import ScrollToTopButton from "./components/ScrollToTopBtn";
 
 const Certificates = () => {
   return (

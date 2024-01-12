@@ -1,3 +1,4 @@
+
 import { validationSchema } from "@/app/certificates/components/forms/validators/YupValidationSchema";
 import { Certificate } from "@/app/certificates/types/Certificate";
 import { firestoreDB } from "@/app/firebase/config";
