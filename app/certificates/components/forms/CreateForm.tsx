@@ -3,7 +3,7 @@ import { useDataPosting } from "@/app/api/certificates/services/PostRequest";
 import { useFormik } from "formik";
 import SubmitBtn from "./Buttons/SubmitBtn";
 import ToastMessage from "./ToastMessage";
-import { formFields } from "./styles/FormFields";
+import { formFields } from "./FormFields";
 import { formClass } from "./styles/FormSyles";
 import { validationSchema } from "./validators/YupValidationSchema";
 
@@ -75,6 +75,7 @@ const CreateForm = () => {
                 value={values[field.name as keyof typeof values]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
+                autoComplete="on"
                 className={`${initClass} ${
                   errors[field.name as keyof typeof errors] &&
                   touched[field.name as keyof typeof errors]
