@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   applicationName: "Ervin Pepic Portfolio",
   title: "Ervin Pepic | Portfolio",
   description: "Software developer portfolio",
-  metadataBase: new URL("https://my-portfolio-next-js-pi.vercel.app/"),
+  metadataBase: new URL("https://ervinpepic.com/"),
 
   openGraph: {
     title: "Ervin Pepic Porfolio",
-    url: "https://my-portfolio-next-js-pi.vercel.app/",
+    url: "https://ervinpepic.com/",
     description: "Ervin Pepic Portfolio",
     type: "website",
     images: [

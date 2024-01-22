@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://my-portfolio-next-js-pi.vercel.app/sitemap.xml",
+    sitemap: "https://ervinpepic.com/sitemap.xml",
   };
 }
