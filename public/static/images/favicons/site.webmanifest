@@ -1,6 +1,6 @@
 {
-    "name": "Ervin Pepic Portfolio",
-    "short_name": "Ervin",
+    "name": "Ervin Pepic | Portfolio",
+    "short_name": "Ervin Pepic | Portfolio",
     "icons": [
         {
             "src": "/static/images/favicons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#2c333e",
+    "background_color": "#2c333e",
     "display": "standalone"
 }
