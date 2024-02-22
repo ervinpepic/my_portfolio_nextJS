@@ -1,3 +1,4 @@
+import { authOptions } from "@/app/auth/authOptions";
 import { firestoreDB } from "@/app/firebase/config";
 import {
   collection,
@@ -6,13 +7,18 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { schoolName: string; title: string } }
 ) {
+  const session = await getServerSession(authOptions);
   try {
+    if (!session) {
+      return NextResponse.json({ message: 'You need to be authenticated with Google acc.' }, { status: 401 })
+    }
     if (!params?.schoolName || !params?.title) {
       return new Response("Missing 'schoolName' or 'title' parameter", {
         status: 400,

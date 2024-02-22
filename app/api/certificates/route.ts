@@ -1,4 +1,5 @@
 
+import { authOptions } from "@/app/auth/authOptions";
 import { validationSchema } from "@/app/certificates/components/forms/validators/YupValidationSchema";
 import { Certificate } from "@/app/certificates/types/Certificate";
 import { firestoreDB } from "@/app/firebase/config";
@@ -9,6 +10,7 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
+import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import * as Yup from "yup";
 
@@ -43,6 +45,10 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ message: 'You need to be authenticated with Google acc.' }, { status: 401 })
+  }
   try {
     const body = await request.json();
 
