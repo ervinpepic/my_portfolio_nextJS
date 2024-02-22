@@ -6,7 +6,7 @@ import CreateForm from "../components/forms/CreateForm";
 const page = async () => {
   const session = await getServerSession(authOptions);
   return (
-    <div className="container mx-auto lg:px-24 px-4">
+    <div className="container mx-auto lg:px-24 px-4 h-dvh">
       <div className="flex flex-col mt-4 md:mt-10">
         <div className="mt-16 lg:mt-20">
           {session && (

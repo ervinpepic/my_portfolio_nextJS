@@ -5,7 +5,7 @@ import Headings from "./components/Headings";
 
 const Certificates = () => {
   return (
-    <div className="container mx-auto lg:px-24 px-4">
+    <div className="container mx-auto lg:px-24 px-4 h-dvh">
       <Headings />
       <Card />
       <ScrollToTopButton />
