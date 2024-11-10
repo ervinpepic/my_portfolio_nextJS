@@ -10,16 +10,19 @@ import {
 import { getServerSession } from "next-auth";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { schoolName: string; title: string } }
-) {
+export async function DELETE(request: NextRequest) {
   const session = await getServerSession(authOptions);
+
+  // Extract parameters from the URL using 'nextURL"
+  const { pathname } = request.nextUrl;
+  const pathParts = pathname.split('/');
+  const schoolName = pathParts[pathParts.length - 2];
+  const title = pathParts[pathParts.length - 1];
   try {
     if (!session) {
       return NextResponse.json({ message: 'You need to be authenticated with Google acc.' }, { status: 401 })
     }
-    if (!params?.schoolName || !params?.title) {
+    if (!schoolName || !title) {
       return new Response("Missing 'schoolName' or 'title' parameter", {
         status: 400,
       });
@@ -27,8 +30,8 @@ export async function DELETE(
 
     const certificateQuery = query(
       collection(firestoreDB, "certificates"),
-      where("schoolName", "==", params.schoolName),
-      where("title", "==", params.title)
+      where("schoolName", "==", schoolName),
+      where("title", "==", title)
     );
 
     const certificateSnapshot = await getDocs(certificateQuery);
