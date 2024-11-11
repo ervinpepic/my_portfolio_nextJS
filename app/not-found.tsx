@@ -1,6 +1,6 @@
 "use client";
-import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export default function NotFound() {
@@ -27,7 +27,7 @@ export default function NotFound() {
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
         <p className="mb-6">
-          Oops! The page you are looking for doesn't exist. Please go back and
+          Oops! The page you are looking for does not exist. Please go back and
           try some other page...
         </p>
         <Link href="/">
