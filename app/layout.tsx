@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${raleway.className} bg-gray-100 dark:bg-[#2c333e]
+        className={`${raleway.className} antialiased bg-gray-100 dark:bg-[#2c333e]
               ${styles.themeSwitcher}`}
       >
         <AuthProvider>
