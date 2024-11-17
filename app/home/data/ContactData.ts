@@ -10,7 +10,7 @@ import { Contact, Links } from "../types/Contact";
 
 const CV_URL = "/static/images/pdf/cv.pdf";
 const CL_URL = "/static/images/pdf/cl.pdf";
-const MAILTO_URL = "mailto:pepic_ervin@hotmail.com";
+const MAILTO_URL = "mailto:dev.ervinpepic@gmail.com";
 const GITHUB_URL = "https://github.com/ervinpepic";
 const LINKEDIN = "https://linkedin.com/in/ervinpepic";
 const STACKOWERFLOW = "https://stackoverflow.com/users/6247087/ervin-pepic";
