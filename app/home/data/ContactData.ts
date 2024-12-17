@@ -1,10 +1,9 @@
 import { CiMail } from "react-icons/ci";
 import {
-  PiFileTextThin, PiFilesThin, PiGithubLogoThin,
-  PiInstagramLogoThin,
+  PiFileTextThin,
+  PiFilesThin,
+  PiGithubLogoThin,
   PiLinkedinLogoThin,
-  PiStackOverflowLogoThin,
-  PiTwitterLogoThin
 } from "react-icons/pi";
 import { Contact, Links } from "../types/Contact";
 
@@ -13,9 +12,6 @@ const CL_URL = "/static/images/pdf/cl.pdf";
 const MAILTO_URL = "mailto:dev.ervinpepic@gmail.com";
 const GITHUB_URL = "https://github.com/ervinpepic";
 const LINKEDIN = "https://linkedin.com/in/ervinpepic";
-const STACKOWERFLOW = "https://stackoverflow.com/users/6247087/ervin-pepic";
-const X = "https://twitter.com/pepic__ervin?lang=en";
-const INSTAGRAM = "https://instagram.com/pepic__ervin";
 
 export const contactData: Contact = {
   title: "Contact",
@@ -37,7 +33,7 @@ export const contactData: Contact = {
   ],
 };
 
-export const SocialLinks: Links[] = [
+export const ContactLinks: Links[] = [
   {
     url: MAILTO_URL,
     Icon: CiMail,
@@ -49,17 +45,5 @@ export const SocialLinks: Links[] = [
   {
     url: LINKEDIN,
     Icon: PiLinkedinLogoThin,
-  },
-  {
-    url: STACKOWERFLOW,
-    Icon: PiStackOverflowLogoThin,
-  },
-  {
-    url: X,
-    Icon: PiTwitterLogoThin,
-  },
-  {
-    url: INSTAGRAM,
-    Icon: PiInstagramLogoThin,
   },
 ];

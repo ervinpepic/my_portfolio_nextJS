@@ -1,4 +1,4 @@
-import { SocialLinks, contactData } from "../data/ContactData";
+import { ContactLinks, contactData } from "../data/ContactData";
 import ContactCardBaseLayout from "./cardTemplates/ContactCardBaseLayout";
 
 const ContactCard = () => {
@@ -10,7 +10,7 @@ const ContactCard = () => {
       cvLinks={links}
       subtitleSecond={subtitles.second}
       description={description}
-      contactLinks={SocialLinks}
+      contactLinks={ContactLinks}
     />
   );
 };
