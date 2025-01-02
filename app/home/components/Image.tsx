@@ -15,8 +15,8 @@ const ImageComponent = () => {
 
   const ImgSrc =
     theme && theme === "light"
-      ? "/static/images/profile/profiledark.png"
-      : "/static/images/profile/profilelight.png";
+      ? "/static/images/profile/profile-dark.png"
+      : "/static/images/profile/profile-light.png";
 
   return (
     <Image
