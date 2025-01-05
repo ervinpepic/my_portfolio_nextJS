@@ -9,15 +9,15 @@ import "./globals.css";
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  applicationName: "Ervin Pepic Portfolio",
+  applicationName: "Ervin Pepic portfolio",
   title: "Ervin Pepic | Portfolio",
-  description: "Software developer portfolio",
+  description: "Software developer",
   metadataBase: new URL("https://ervinpepic.com/"),
 
   openGraph: {
-    title: "Ervin Pepic Porfolio",
+    title: "Ervin Pepic porfolio",
     url: "https://ervinpepic.com/",
-    description: "Ervin Pepic Portfolio",
+    description: "Software developer",
     type: "website",
     images: [
       {
