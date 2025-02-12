@@ -1,9 +1,2 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    @apply transition-all ease-linear;
-  }
-}
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));

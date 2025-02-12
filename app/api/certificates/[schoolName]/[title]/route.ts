@@ -14,16 +14,16 @@ export async function DELETE(request: NextRequest) {
   const session = await getServerSession(authOptions);
 
   // Extract parameters from the URL using 'nextURL"
-  const { pathname } = request.nextUrl;
+  const { pathname } = new URL(request.url);
   const pathParts = pathname.split('/');
   const schoolName = pathParts[pathParts.length - 2];
   const title = pathParts[pathParts.length - 1];
   try {
     if (!session) {
-      return NextResponse.json({ message: 'You need to be authenticated with Google acc.' }, { status: 401 })
+      return NextResponse.json({ message: 'You need to be authenticated with a Google account.' }, { status: 401 })
     }
     if (!schoolName || !title) {
-      return new Response("Missing 'schoolName' or 'title' parameter", {
+      return new Response("The 'schoolName' or 'title' parameter is missing from the URL", {
         status: 400,
       });
     }
@@ -53,6 +53,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
   } catch (error) {
+    // Log the error for debugging purposes. This could be due to network issues, Firestore permission issues, or invalid document references.
     console.error("Error during certificate deletion:", error);
     return NextResponse.json(
       { error: "Internal server error" },

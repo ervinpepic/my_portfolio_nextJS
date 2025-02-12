@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import ThemeModeSwitcher from "./Theme/ThemeModeSwitcher";
-import styles from "./Theme/ThemeModeSwitcher.module.css";
-import ThemeProviderApp from "./Theme/ThemeProviderApp";
+import { ThemeProvider } from "./Theme/ThemeProviderApp";
 import AuthProvider from "./auth/Provider";
 import "./globals.css";
 
@@ -56,18 +55,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${raleway.className} antialiased bg-gray-100 dark:bg-[#2c333e]
-              ${styles.themeSwitcher}`}
+        `}
       >
-        <AuthProvider>
-          <ThemeProviderApp
-            attribute="class"
-            enableSystem={false}
-            defaultTheme="dark"
-          >
+        <ThemeProvider
+          attribute="class"
+          enableSystem={false}
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <AuthProvider>
             <ThemeModeSwitcher />
             <main>{children}</main>
-          </ThemeProviderApp>
-        </AuthProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
