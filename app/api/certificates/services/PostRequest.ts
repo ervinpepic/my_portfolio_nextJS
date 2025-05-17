@@ -6,43 +6,47 @@ import { useState } from "react";
 export const useDataPosting = () => {
   const API_ENDPOINT = "/api/certificates";
 
-  const [isCreatePostloading, setIsCreatePostloading] = useState(false);
+  const [isCreatePostLoading, setIsCreatePostLoading] = useState(false);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
 
   const addCertificate = async (newCertificate: Certificate): Promise<void> => {
-    try {
-      setIsCreatePostloading(true);
-      await validationSchema.validate(newCertificate, { abortEarly: false });
-      const response = await axios.post(API_ENDPOINT, newCertificate);
+    setIsCreatePostLoading(true);
 
-      if (response.status === 200 || response.status === 201) {
-        console.log(
-          `Certificate added successfully: ${newCertificate.schoolName}`
-        );
+    try {
+      // Validate input
+      await validationSchema.validate(newCertificate, { abortEarly: false });
+
+      // Post to API
+      const { status } = await axios.post(API_ENDPOINT, newCertificate);
+
+      if (status === 200 || status === 201) {
+        console.log(`Certificate added: ${newCertificate.schoolName}`);
         setShowSuccessToast(true);
-        setTimeout(() => {
-          setShowSuccessToast(false);
-        }, 4000);
       } else {
-        console.error(
-          `Error adding certificate: ${response.status} - ${response.statusText}`
-        );
-        setTimeout(() => {
-          setShowErrorToast(true);
-        }, 4000);
+        console.error(`Unexpected status code: ${status}`);
+        setShowErrorToast(true);
       }
-    } catch (error) {
-      console.error("Error during certificate addition", error);
+    } catch (error: any) {
+      if (error.name === "ValidationError") {
+        console.error("Validation failed:", error.errors);
+      } else {
+        console.error("Post error:", error);
+      }
       setShowErrorToast(true);
     } finally {
-      setIsCreatePostloading(false);
+      // Toasts auto-hide
+      setTimeout(() => {
+        setShowSuccessToast(false);
+        setShowErrorToast(false);
+      }, 4000);
+      setIsCreatePostLoading(false);
     }
   };
 
   return {
     addCertificate,
-    isCreatePostloading,
+    isCreatePostLoading,
     showSuccessToast,
     setShowSuccessToast,
     showErrorToast,

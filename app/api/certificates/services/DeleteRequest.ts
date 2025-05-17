@@ -1,5 +1,5 @@
+import { useState, useCallback } from "react";
 import axios from "axios";
-import { useState } from "react";
 
 export const useDataDeleting = () => {
   const [forceRefetch, setForceRefetch] = useState(false);
@@ -7,10 +7,13 @@ export const useDataDeleting = () => {
   const [showSuccessToast, setShowSuccessToast] = useState(false);
   const [showErrorToast, setShowErrorToast] = useState(false);
 
-  const handleDelete = async (schoolName: string, certificateTitle: string) => {
-    const API_ENDPOINT = `/api/certificates/${encodeURIComponent(
-      schoolName
-    )}/${encodeURIComponent(certificateTitle)}`;
+  const resetToast = (setToastFn: (value: boolean) => void) => {
+    setToastFn(true);
+    setTimeout(() => setToastFn(false), 4000);
+  };
+
+  const handleDelete = useCallback(async (schoolName: string, certificateTitle: string) => {
+    const API_ENDPOINT = `/api/certificates/${encodeURIComponent(schoolName)}/${encodeURIComponent(certificateTitle)}`;
 
     try {
       setDeleteLoading(true);
@@ -18,28 +21,19 @@ export const useDataDeleting = () => {
 
       if (response.status === 200) {
         console.log("Delete successful");
-        setShowSuccessToast(true);
-        setTimeout(() => {
-          setShowSuccessToast(false);
-        }, 4000);
+        resetToast(setShowSuccessToast);
         setForceRefetch((prev) => !prev);
       } else {
         console.error("Delete failed", response.data);
-        setShowErrorToast(true);
-        setTimeout(() => {
-          setShowErrorToast(false);
-        }, 4000);
+        resetToast(setShowErrorToast);
       }
     } catch (error) {
       console.error("Error during delete operation", error);
-      setShowErrorToast(true);
-      setTimeout(() => {
-        setShowErrorToast(false);
-      }, 4000);
+      resetToast(setShowErrorToast);
     } finally {
       setDeleteLoading(false);
     }
-  };
+  }, []);
 
   return {
     handleDelete,
