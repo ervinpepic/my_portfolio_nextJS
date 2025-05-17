@@ -10,7 +10,7 @@ import { validationSchema } from "./validators/YupValidationSchema";
 const CreateForm = () => {
   const {
     addCertificate,
-    isCreatePostloading,
+    isCreatePostLoading,
     showSuccessToast,
     setShowSuccessToast,
     showErrorToast,
@@ -94,7 +94,7 @@ const CreateForm = () => {
         ))}
         <div className="md:col-span-2 mt-4">
           <SubmitBtn
-            loading={isCreatePostloading}
+            loading={isCreatePostLoading}
             errors={errors}
             touched={touched}
           />
